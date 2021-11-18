@@ -39,6 +39,8 @@ namespace GDApp
         private Dictionary<string, Texture2D> textureDictionary;
 
         private Scene activeScene;
+        private Texture2D uiColor;
+        private Color cSwitch;
 
         #endregion Fields
 
@@ -59,6 +61,11 @@ namespace GDApp
         /// </summary>
         protected override void Initialize()
         {
+            //Initialize color for UI
+            cSwitch = Color.Blue;
+            uiColor = Content.Load<Texture2D>("Blue_Frame");
+
+
             //data, input, scene manager
             InitializeEngine("My Game Title Goes Here", 1024, 768);
 
@@ -383,12 +390,34 @@ namespace GDApp
         protected override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
+
+            if (Input.Mouse.WasJustClicked((MouseButton.Left)))
+                Switch();
+        }
+
+        private void Switch()
+        {
+            if(cSwitch == Color.Blue)
+            {
+                cSwitch = Color.Red;
+                uiColor = Content.Load<Texture2D>("Red_Frame");
+            }
+            else
+            {
+                cSwitch = Color.Blue;
+                uiColor = Content.Load<Texture2D>("Blue_Frame");
+            }
         }
 
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.HotPink);
+
             base.Draw(gameTime);
+
+            _spriteBatch.Begin();
+            _spriteBatch.Draw(uiColor, new Vector2(0, 0), null, cSwitch, 0, Vector2.Zero, new Vector2(0.62f, 0.75f), SpriteEffects.None, 0);
+            _spriteBatch.End();
         }
 
         #endregion Update & Draw
