@@ -387,14 +387,24 @@ namespace GDApp
 
         #region Update & Draw
 
+       
+        /// <summary>
+        /// Added a mouse input to detect whenever the player left click, which would trigger switch event
+        /// </summary>
+        /// <param name="gameTime"></param>
         protected override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
+
+            
 
             if (Input.Mouse.WasJustClicked((MouseButton.Left)))
                 Switch();
         }
 
+       /// <summary>
+       /// Added a method called Switch that will change UI color from red to blue and viceversa
+       /// </summary>
         private void Switch()
         {
             if(cSwitch == Color.Blue)
@@ -415,6 +425,7 @@ namespace GDApp
 
             base.Draw(gameTime);
 
+            // Added the UI to be drawn after all the object so its not overlapped by any object
             _spriteBatch.Begin();
             _spriteBatch.Draw(uiColor, new Vector2(0, 0), null, cSwitch, 0, Vector2.Zero, new Vector2(0.62f, 0.75f), SpriteEffects.None, 0);
             _spriteBatch.End();
