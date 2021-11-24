@@ -1,4 +1,5 @@
 ﻿using GDLibrary;
+using GDApp;
 using GDLibrary.Components;
 using GDLibrary.Core;
 using GDLibrary.Graphics;
@@ -15,6 +16,10 @@ namespace ColorSwitchGame
 {
     class ColorSwitch
     {
+        /// <summary>
+        /// Add Boundry walls to level.
+        /// </summary>
+        /// <param name="level"></param>
         public void InitializeBounds(Scene level, ContentManager Content)
         {
             #region Archetype
@@ -75,6 +80,10 @@ namespace ColorSwitchGame
 
         }
 
+        /// <summary>
+        /// Add neutral platforms to level.
+        /// </summary>
+        /// <param name="level"></param>
         public void InitializeNeutralPlatforms(Scene level, ContentManager Content)
         {
             #region Archetype
@@ -94,7 +103,7 @@ namespace ColorSwitchGame
             //Main Platform
             var clone = platform.Clone() as GameObject;
             clone.Name = $"{clone.Name} - {1}";
-            clone.Transform.SetTranslation(0, -5, 5);
+            clone.Transform.SetTranslation(0, -2, 5);
             clone.Transform.SetScale(10, 5, 5);
             level.Add(clone);
 
@@ -138,16 +147,50 @@ namespace ColorSwitchGame
             var switcherB = new PlatformerSwitch(false);
             platformObjectBS.AddComponent(switcherB);
 
-            //Create Platform clones
-            var platformObjectRSClone = platformObjectRS.Clone() as GameObject;
-            platformObjectRSClone.Transform.SetTranslation(2, 0, 0);
-            platformObjectRSClone.Transform.SetScale(2, 0.5f, 2);
-            level.Add(platformObjectRSClone);
+            //Create Platform clone Red
+            for(int i = 0; i < 3; i++)
+            {
+                var platformObjectRSClone = platformObjectRS.Clone() as GameObject;
 
-            var platformObjectBSClone = platformObjectBS.Clone() as GameObject;
-            platformObjectBSClone.Transform.SetTranslation(-2, 0, 0);
-            platformObjectBSClone.Transform.SetScale(2, 0.5f, 2);
-            level.Add(platformObjectBSClone);
+                switch (i) {
+                    case 0: platformObjectRSClone.Transform.SetTranslation(2, 0, 0);
+                        break;
+                    case 1: platformObjectRSClone.Transform.SetTranslation(-2, 0, -4);
+                        break;
+                    case 2: platformObjectRSClone.Transform.SetTranslation(2, 0, -8);
+                        break;
+                }
+
+                platformObjectRSClone.Transform.SetScale(2, 0.5f, 2);
+                level.Add(platformObjectRSClone);
+            }
+
+            //Create Platform clone Blue
+            for (int i = 0; i < 3; i++)
+            {
+                var platformObjectBSClone = platformObjectBS.Clone() as GameObject;
+
+                switch (i)
+                {
+                    case 0:
+                        platformObjectBSClone.Transform.SetTranslation(-2, 0, 0);
+                        break;
+                    case 1:
+                        platformObjectBSClone.Transform.SetTranslation(2, 0, -4);
+                        break;
+                    case 2:
+                        platformObjectBSClone.Transform.SetTranslation(-2, 0, -8);
+                        break;
+                }
+
+                platformObjectBSClone.Transform.SetScale(2, 0.5f, 2);
+                level.Add(platformObjectBSClone);
+            }
+
+           
+           
+          
         }
+
     }
 }
