@@ -67,7 +67,7 @@ namespace GDApp
 
 
             //data, input, scene manager
-            InitializeEngine("My Game Title Goes Here", 1024, 768);
+            InitializeEngine("ColorShift", 1024, 768);
 
             //load structures that store assets (e.g. textures, sounds) or archetypes (e.g. Quad game object)
             InitializeDictionaries();
@@ -129,8 +129,14 @@ namespace GDApp
             InitializeCubes(activeScene);
             InitializeModels(activeScene);
 
+            //Load platforms
+            InitializePlatforms(activeScene);
+
             sceneManager.Add(activeScene);
             sceneManager.LoadScene("level 1");
+
+            //Initialize the switch at the beginning to get every object to their correct state
+            Switch();
         }
 
         /// <summary>
@@ -331,6 +337,56 @@ namespace GDApp
         }
 
         /// <summary>
+        /// Add Platforms to our demo.
+        /// </summary>
+        /// <param name="level"></param>
+        private void InitializePlatforms(Scene level)
+        {
+            //For now we can make the level here, we can create a seperate file/class for clarity and simplicity later
+
+            //Initialize all platform types
+
+            //Red stationary platform
+            var rendererRS = new MeshRenderer();
+            rendererRS.Mesh = new CubeMesh();
+            var materialRS = new BasicMaterial("red");
+            materialRS.Texture = Content.Load<Texture2D>("red");
+            materialRS.Shader = new BasicShader(Application.Content);
+            rendererRS.Material = materialRS;
+
+            var platformObjectRS = new GameObject("Platform Stationary Red", GameObjectType.Interactable);
+            platformObjectRS.Transform.SetScale(2, 0.5f, 2);
+            platformObjectRS.AddComponent(rendererRS);
+            var switcherR = new PlatformerSwitch(true);
+            platformObjectRS.AddComponent(switcherR);
+
+            //Blue stationary platform
+            var rendererBS = new MeshRenderer();
+            rendererBS.Mesh = new CubeMesh();
+            var materialBS = new BasicMaterial("blue");
+            materialBS.Texture = Content.Load<Texture2D>("blue");
+            materialBS.Shader = new BasicShader(Application.Content);
+            rendererBS.Material = materialBS;
+
+            var platformObjectBS = new GameObject("Platform Stationary Blue", GameObjectType.Interactable);
+            platformObjectBS.Transform.SetScale(2, 0.5f, 2);
+            platformObjectBS.AddComponent(rendererBS);
+            var switcherB = new PlatformerSwitch(false);
+            platformObjectBS.AddComponent(switcherB);
+
+            //Create Platform clones
+            var platformObjectRSClone = platformObjectRS.Clone() as GameObject;
+            platformObjectRSClone.Transform.SetTranslation(2, 0, 0);
+            platformObjectRSClone.Transform.SetScale(2, 0.5f, 2);
+            level.Add(platformObjectRSClone);
+
+            var platformObjectBSClone = platformObjectBS.Clone() as GameObject;
+            platformObjectBSClone.Transform.SetTranslation(-2, 0, 0);
+            platformObjectBSClone.Transform.SetScale(2, 0.5f, 2);
+            level.Add(platformObjectBSClone);
+        }
+
+        /// <summary>
         /// Set application data, input, title and scene manager
         /// </summary>
         private void InitializeEngine(string gameTitle, int width, int height)
@@ -349,7 +405,7 @@ namespace GDApp
             Application.SceneManager = sceneManager;
 
             //instanciate render manager to render all drawn game objects using preferred renderer (e.g. forward, backward)
-            renderManager = new RenderManager(this, new ForwardRenderer(), true);
+            renderManager = new RenderManager(this, new ForwardRenderer(), false);
 
             //instanciate screen (singleton) and set resolution etc
             Screen.GetInstance().Set(width, height, true, false);
@@ -402,20 +458,55 @@ namespace GDApp
                 Switch();
         }
 
-       /// <summary>
-       /// Added a method called Switch that will change UI color from red to blue and viceversa
-       /// </summary>
+        /// <summary>
+        /// Predicate to check if a Gameobject has a component with the IInteractable interface
+        /// </summary>
+        /// <param name="gameObject"></param>
+        /// <returns></returns>
+        static bool IsInteractable(GameObject gameObject)
+        {
+            foreach (Component component in gameObject.Components)
+            {
+                if (component is IInteractable)
+                    return true;
+            }
+            // return gO.Components is IInteractable;
+            return false;
+        }
+
+        /// <summary>
+        /// Added a method called Switch that will change UI color from red to blue and viceversa
+        /// </summary>
+        /// 
         private void Switch()
         {
+            
             if(cSwitch == Color.Blue)
             {
                 cSwitch = Color.Red;
                 uiColor = Content.Load<Texture2D>("Red_Frame");
+
+                foreach (GameObject gameObject in activeScene.FindAll(IsInteractable))
+                {
+                    foreach (Component component in gameObject.Components)
+                    {
+                        if (component is IInteractable)
+                            (component as IInteractable).Switch(true);
+                    }
+                }
             }
             else
             {
                 cSwitch = Color.Blue;
                 uiColor = Content.Load<Texture2D>("Blue_Frame");
+                foreach (GameObject gameObject in activeScene.FindAll(IsInteractable))
+                {
+                    foreach (Component component in gameObject.Components)
+                    {
+                        if (component is IInteractable)
+                            (component as IInteractable).Switch(false);
+                    }
+                }
             }
         }
 
