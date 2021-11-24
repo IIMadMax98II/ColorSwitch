@@ -13,7 +13,7 @@ using System.Collections.Generic;
 
 namespace GDApp
 {
-    class ColoSwitch
+    class ColorSwitch
     {
 
     }

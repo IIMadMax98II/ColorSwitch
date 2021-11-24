@@ -118,7 +118,6 @@ namespace GDApp
 
             //ColorSwitch
             textureDictionary.Add("BrickWall_01", Content.Load<Texture2D>("Assets/ColorSwitch/Wall/Texture/BrickWall"));
-
         }
 
         /// <summary>
