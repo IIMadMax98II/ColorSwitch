@@ -115,6 +115,10 @@ namespace GDApp
             textureDictionary.Add("skybox_right", Content.Load<Texture2D>("Assets/Textures/Skybox/right"));
             textureDictionary.Add("skybox_back", Content.Load<Texture2D>("Assets/Textures/Skybox/back"));
             textureDictionary.Add("skybox_sky", Content.Load<Texture2D>("Assets/Textures/Skybox/sky"));
+
+            //ColorSwitch
+            textureDictionary.Add("BrickWall_01", Content.Load<Texture2D>("Assets/ColorSwitch/Wall/Texture/BrickWall"));
+
         }
 
         /// <summary>
