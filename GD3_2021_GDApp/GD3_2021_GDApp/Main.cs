@@ -11,6 +11,7 @@ using GDLibrary.Renderers;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
+using ColorSwitch.Game;
 
 namespace GDApp
 {
@@ -125,11 +126,18 @@ namespace GDApp
         /// </summary>
         private void InitializeLevel()
         {
+           
             activeScene = new Scene("level 1");
-            InitializeCameras(activeScene);
+           
 
+            InitializeCameras(activeScene);
+            
             InitializeSkybox(activeScene, 500);
-            InitializeCubes(activeScene);
+
+            // ColorSwitch Make walls
+            ColorSwitch game = new ColorSwitch();
+            game.InitializeBounds(activeScene, Content);
+
             InitializeModels(activeScene);
 
             //Load platforms

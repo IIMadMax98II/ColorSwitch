@@ -13,6 +13,14 @@
     <AssemblyName>GDApp</AssemblyName>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Remove="Content\Assets\ColorSwitch\Models\**" />
+    <Compile Remove="Content\Assets\ColorSwitch\Texture\**" />
+    <EmbeddedResource Remove="Content\Assets\ColorSwitch\Models\**" />
+    <EmbeddedResource Remove="Content\Assets\ColorSwitch\Texture\**" />
+    <None Remove="Content\Assets\ColorSwitch\Models\**" />
+    <None Remove="Content\Assets\ColorSwitch\Texture\**" />
+  </ItemGroup>
+  <ItemGroup>
     <TrimmerRootAssembly Include="Microsoft.Xna.Framework.Content.ContentTypeReader" Visible="false" />
   </ItemGroup>
   <ItemGroup>
