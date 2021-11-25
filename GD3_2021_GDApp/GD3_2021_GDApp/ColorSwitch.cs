@@ -100,12 +100,19 @@ namespace ColorSwitchGame
 
             #endregion Archetype
 
-            //Main Platform
-            var clone = platform.Clone() as GameObject;
-            clone.Name = $"{clone.Name} - {1}";
-            clone.Transform.SetTranslation(0, -2, 5);
-            clone.Transform.SetScale(10, 5, 5);
-            level.Add(clone);
+            //Initial Platform
+            var init = platform.Clone() as GameObject;
+            init.Name = $"{init.Name} - {1}";
+            init.Transform.SetTranslation(0, -2, 5);
+            init.Transform.SetScale(10, 5, 5);
+            level.Add(init);
+
+            //Middle Platform
+            var middle = platform.Clone() as GameObject;
+            middle.Name = $"{middle.Name} - {1}";
+            middle.Transform.SetTranslation(0, -2, -12);
+            middle.Transform.SetScale(10, 5, 5);
+            level.Add(middle);
 
         }
 
