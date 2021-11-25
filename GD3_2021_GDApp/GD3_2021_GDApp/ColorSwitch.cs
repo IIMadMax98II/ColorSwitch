@@ -100,12 +100,32 @@ namespace ColorSwitchGame
 
             #endregion Archetype
 
+           
+           
+            
+            
+            
+            
+
             //Main Platform
-            var clone = platform.Clone() as GameObject;
-            clone.Name = $"{clone.Name} - {1}";
-            clone.Transform.SetTranslation(0, -2, 5);
-            clone.Transform.SetScale(10, 5, 5);
-            level.Add(clone);
+            for (int i = 0; i < 2; i++)
+            {
+                var clone = platform.Clone() as GameObject;
+                clone.Name = $"{clone.Name} - {1}";
+
+                switch (i)
+                {
+                    case 0:
+                        clone.Transform.SetTranslation(0, -2, 5);
+                        clone.Transform.SetScale(10, 5, 5);
+                        break;
+                    case 1:
+                        clone.Transform.SetTranslation(0, -2, -14);
+                        clone.Transform.SetScale(10, 5, 2.5f);
+                        break;
+                }
+                level.Add(clone);
+            }
 
         }
 
@@ -187,9 +207,30 @@ namespace ColorSwitchGame
                 level.Add(platformObjectBSClone);
             }
 
-           
-           
-          
+            //Moving Platform
+            Curve3D translationCurve;
+
+            //Red Moving Platform
+            var platformObjectRMClone = platformObjectRS.Clone() as GameObject;
+            translationCurve = new Curve3D(CurveLoopType.Cycle);
+            translationCurve.Add(new Vector3(4, 0, -18), 0);
+            translationCurve.Add(new Vector3(-4, 0, -18), 2000);
+            translationCurve.Add(new Vector3(4, 0, -18), 4000);
+            platformObjectRMClone.AddComponent(new CurveBehaviour(translationCurve));
+
+            platformObjectRMClone.Transform.SetScale(2, 0.5f, 2);
+            level.Add(platformObjectRMClone);
+
+            //Blue Moving Platform
+            var platformObjectBMClone = platformObjectBS.Clone() as GameObject;
+            translationCurve = new Curve3D(CurveLoopType.Cycle);
+            translationCurve.Add(new Vector3(-4, 0, -22), 0);
+            translationCurve.Add(new Vector3(4, 0, -22), 2000);
+            translationCurve.Add(new Vector3(-4, 0, -22), 4000);
+            platformObjectBMClone.AddComponent(new CurveBehaviour(translationCurve));
+
+            platformObjectBMClone.Transform.SetScale(2, 0.5f, 2);
+            level.Add(platformObjectBMClone);
         }
 
     }

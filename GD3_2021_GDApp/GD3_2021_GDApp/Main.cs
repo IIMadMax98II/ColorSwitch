@@ -383,6 +383,7 @@ namespace GDApp
             Components.Add(Input.Mouse);
             Components.Add(Input.Gamepad);
             Components.Add(Time.GetInstance(this));
+
         }
 
         #endregion Initialization - Scene manager, Application data, Screen, Input, Scenes, Game Objects
@@ -473,9 +474,9 @@ namespace GDApp
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.HotPink);
-
+            
             base.Draw(gameTime);
-
+            
             // Added the UI to be drawn after all the object so its not overlapped by any object
             _spriteBatch.Begin();
             _spriteBatch.Draw(uiColor, new Vector2(0, 0), null, cSwitch, 0, Vector2.Zero, new Vector2(0.62f, 0.75f), SpriteEffects.None, 0);

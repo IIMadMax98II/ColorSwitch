@@ -12,7 +12,7 @@ namespace GDApp
     class PlatformerSwitch : Component, IInteractable
     {
         /// <summary>
-        /// 
+        /// Tell which color this gameobject has
         /// </summary>
         bool isRed;
 
