@@ -100,13 +100,6 @@ namespace ColorSwitchGame
 
             #endregion Archetype
 
-           
-           
-            
-            
-            
-            
-
             //Main Platform
             for (int i = 0; i < 2; i++)
             {
