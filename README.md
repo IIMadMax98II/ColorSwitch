@@ -5,4 +5,4 @@
 - Run the code by either debugging or by starting without debugging (F5)
 
 ### Asset Location
-- All Assets are location within *GD3_2021_GDApp\GD3_2021_GDApp\Content\Assets*
+- All Assets are located within *GD3_2021_GDApp\GD3_2021_GDApp\Content\Assets*
