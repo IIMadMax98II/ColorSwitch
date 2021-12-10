@@ -12,6 +12,9 @@
     <RootNamespace>GDApp</RootNamespace>
     <AssemblyName>GDApp</AssemblyName>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
   <ItemGroup>
     <Compile Remove="Content\Assets\ColorSwitch\Models\**" />
     <Compile Remove="Content\Assets\ColorSwitch\Texture\**" />
@@ -30,5 +33,6 @@
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />
   </ItemGroup>
+  <Import Project="..\..\JigLibX\JigLibX.projitems" Label="Shared" />
   <Import Project="..\..\GD3_2021_GDLibrary\GD3_2021_GDLibrary\GD3_2021_GDLibrary.projitems" Label="Shared" />
 </Project>
