@@ -20,7 +20,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Media;
 using System;
 using System.Collections.Generic;
-using ColorSwitchGame;
+using ColorSwitch;
 
 namespace GDApp
 {
@@ -95,8 +95,9 @@ namespace GDApp
         private UITextObject nameTextObj;
         private Collider collider;
 
-        private Texture2D uiColor;
-        private Color cSwitch;
+        /// TODO - Remove this
+        //private Texture2D uiColor;
+        //private Color cSwitch;
 
         #endregion Fields
 
@@ -218,83 +219,6 @@ namespace GDApp
         /// <param name="gameTime"></param>
         protected override void Update(GameTime gameTime)
         {
-            //if (Input.Keys.WasJustPressed(Microsoft.Xna.Framework.Input.Keys.P))
-            //{
-            //    //DEMO - raise event
-            //    //EventDispatcher.Raise(new EventData(EventCategoryType.Menu,
-            //    //    EventActionType.OnPause));
-
-            //    object[] parameters = { nameTextObj };
-
-            //    EventDispatcher.Raise(new EventData(EventCategoryType.UiObject,
-            //        EventActionType.OnRemoveObject, parameters));
-
-            //    ////renderManager.StatusType = StatusType.Off;
-            //}
-            //else if (Input.Keys.WasJustPressed(Microsoft.Xna.Framework.Input.Keys.U))
-            //{
-            //    //DEMO - raise event
-
-            //    object[] parameters = { "main game ui", nameTextObj };
-
-            //    EventDispatcher.Raise(new EventData(EventCategoryType.UiObject,
-            //        EventActionType.OnAddObject, parameters));
-
-            //    //renderManager.StatusType = StatusType.Drawn;
-            //    //EventDispatcher.Raise(new EventData(EventCategoryType.Menu,
-            //    //  EventActionType.OnPlay));
-            //}
-
-            if (Input.Keys.WasJustPressed(Microsoft.Xna.Framework.Input.Keys.Up))
-            {
-                object[] parameters = { "health", 1 };
-                EventDispatcher.Raise(new EventData(EventCategoryType.UI,
-                    EventActionType.OnHealthDelta, parameters));
-            }
-            else if (Input.Keys.WasJustPressed(Microsoft.Xna.Framework.Input.Keys.Down))
-            {
-                object[] parameters = { "health", -1 };
-                EventDispatcher.Raise(new EventData(EventCategoryType.UI,
-                    EventActionType.OnHealthDelta, parameters));
-            }
-
-            if (Input.Keys.WasJustPressed(Microsoft.Xna.Framework.Input.Keys.P))
-            {
-                EventDispatcher.Raise(new EventData(EventCategoryType.Menu,
-                          EventActionType.OnPause));
-            }
-            else if (Input.Keys.WasJustPressed(Microsoft.Xna.Framework.Input.Keys.O))
-            {
-                EventDispatcher.Raise(new EventData(EventCategoryType.Menu,
-                    EventActionType.OnPlay));
-            }
-
-            if (Input.Keys.WasJustPressed(Microsoft.Xna.Framework.Input.Keys.F1))
-            {
-                object[] parameters = { "smokealarm" };
-                EventDispatcher.Raise(new EventData(EventCategoryType.Sound,
-                    EventActionType.OnPlay2D, parameters));
-            }
-            else if (Input.Keys.WasJustPressed(Microsoft.Xna.Framework.Input.Keys.F2))
-            {
-                object[] parameters = { "smokealarm" };
-                EventDispatcher.Raise(new EventData(EventCategoryType.Sound,
-                    EventActionType.OnStop, parameters));
-            }
-
-            if (Input.Keys.WasJustPressed(Microsoft.Xna.Framework.Input.Keys.C))
-                Application.SceneManager.ActiveScene.CycleCameras();
-
-            //if (Input.Keys.WasJustPressed(Microsoft.Xna.Framework.Input.Keys.V))
-            //{
-            //    object[] parameters = { "main menu video" };
-            //    EventDispatcher.Raise(new EventData(EventCategoryType.Video,
-            //        EventActionType.OnPlay, parameters));
-            //}
-
-            if (Input.Mouse.WasJustClicked((MouseButton.Left)))
-                Switch();
-
             base.Update(gameTime);
         }
 
@@ -304,7 +228,7 @@ namespace GDApp
         /// <param name="gameTime"></param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.Black);
             base.Draw(gameTime);
         }
 
@@ -314,53 +238,6 @@ namespace GDApp
 
         #region Student/Group Specific Code
 
-        private void Switch()
-        {
-
-            /// <summary>
-            /// Predicate to check if a Gameobject has a component with the IInteractable interface
-            /// </summary>
-            /// <param name="gameObject"></param>
-            /// <returns></returns>
-            static bool IsInteractable(GameObject gameObject)
-            {
-                foreach (Component component in gameObject.Components)
-                {
-                    if (component is IInteractable)
-                        return true;
-                }
-                // return gO.Components is IInteractable;
-                return false;
-            }
-
-            if (cSwitch == Color.Blue)
-            {
-                cSwitch = Color.Red;
-                uiColor = Content.Load<Texture2D>("Red_Frame");
-
-                foreach (GameObject gameObject in activeScene.FindAll(IsInteractable))
-                {
-                    foreach (Component component in gameObject.Components)
-                    {
-                        if (component is IInteractable)
-                            (component as IInteractable).Switch(true);
-                    }
-                }
-            }
-            else
-            {
-                cSwitch = Color.Blue;
-                uiColor = Content.Load<Texture2D>("Blue_Frame");
-                foreach (GameObject gameObject in activeScene.FindAll(IsInteractable))
-                {
-                    foreach (Component component in gameObject.Components)
-                    {
-                        if (component is IInteractable)
-                            (component as IInteractable).Switch(false);
-                    }
-                }
-            }
-        }
 
         /// <summary>
         /// Initialize engine, dictionaries, assets, level contents
@@ -502,9 +379,9 @@ namespace GDApp
 
             //reticule
             textureDictionary.Add("reticuleOpen",
-      Content.Load<Texture2D>("Assets/Textures/UI/Controls/reticuleOpen"));
+            Content.Load<Texture2D>("Assets/Textures/UI/Controls/reticuleOpen"));
             textureDictionary.Add("reticuleDefault",
-          Content.Load<Texture2D>("Assets/Textures/UI/Controls/reticuleDefault"));
+            Content.Load<Texture2D>("Assets/Textures/UI/Controls/reticuleDefault"));
         }
 
         /// <summary>
@@ -544,12 +421,8 @@ namespace GDApp
 
             //Colorshift Level
 
-            //Initialize color for UI
-            cSwitch = Color.Blue;
-            uiColor = Content.Load<Texture2D>("Blue_Frame");
-
             // ColorSwitch Make walls + Neutral Platforms
-            ColorSwitch game = new ColorSwitch();
+            FirstScene game = new FirstScene();
             game.InitializeBounds(activeScene, Content);
             game.InitializeNeutralPlatforms(activeScene, Content);
 
@@ -559,8 +432,6 @@ namespace GDApp
             sceneManager.Add(activeScene);
             sceneManager.LoadScene("level 1");
 
-            //Initialize the switch at the beginning to get every object to their correct state
-            Switch();
         }
 
         /// <summary>
@@ -949,6 +820,10 @@ namespace GDApp
             //add components
             camera.AddComponent(new Camera(_graphics.GraphicsDevice.Viewport));
 
+            //Add the switch behavior
+            camera.AddComponent(new SwitchBehavior(Content, activeScene));
+            camera.GetComponent<SwitchBehavior>().Switch();
+
             //adding a collidable surface that enables acceleration, jumping
             var collider = new CharacterCollider(2, 2, true, false);
 
@@ -959,7 +834,7 @@ namespace GDApp
             collider.Enable(false, 2);
 
             //add controller to actually move the collidable camera
-            camera.AddComponent(new MyCollidableFirstPersonController(12,
+            camera.AddComponent(new ColorSwitchFPC(12,
                         0.5f, 0.3f, new Vector2(0.006f, 0.004f)));
 
             //add to level
@@ -983,7 +858,6 @@ namespace GDApp
         {
             InitializeCollidableGround(level, worldScale);
             InitializeCollidableCubes(level);
-
             InitializeCollidableModels(level);
             //InitializeCollidableTriangleMeshes(level);
         }

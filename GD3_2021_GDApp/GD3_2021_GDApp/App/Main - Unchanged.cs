@@ -56,6 +56,7 @@
 //        /// </summary>
 //        private SoundManager soundManager;
 
+//        private MyStateManager stateManager;
 //        private PickingManager pickingManager;
 
 //        /// <summary>
@@ -82,6 +83,11 @@
 //        /// Quick lookup for all models used within the game
 //        /// </summary>
 //        private ContentDictionary<Model> modelDictionary;
+
+//        /// <summary>
+//        /// Quick lookup for all videos used within the game by texture behaviours
+//        /// </summary>
+//        private ContentDictionary<Video> videoDictionary;
 
 //        //temps
 //        private Scene activeScene;
@@ -129,18 +135,21 @@
 //            //add support for playing sounds
 //            soundManager = new SoundManager(this);
 
+//            //this will check win/lose logic
+//            stateManager = new MyStateManager(this);
+
 //            //picking support using physics engine
 //            //this predicate lets us say ignore all the other collidable objects except interactables and consumables
 //            Predicate<GameObject> collisionPredicate =
 //                (collidableObject) =>
-//                {
-//                    if (collidableObject != null)
-//                        return collidableObject.GameObjectType
-//                        == GameObjectType.Interactable
-//                        || collidableObject.GameObjectType == GameObjectType.Consumable;
+//            {
+//                if (collidableObject != null)
+//                    return collidableObject.GameObjectType
+//                    == GameObjectType.Interactable
+//                    || collidableObject.GameObjectType == GameObjectType.Consumable;
 
-//                    return false;
-//                };
+//                return false;
+//            };
 //            pickingManager = new PickingManager(this, 2, 100, collisionPredicate);
 
 //            //initialize global application data
@@ -150,6 +159,7 @@
 //            Application.GraphicsDeviceManager = _graphics;
 //            Application.SceneManager = sceneManager;
 //            Application.PhysicsManager = physicsManager;
+//            Application.StateManager = stateManager;
 
 //            //instanciate render manager to render all drawn game objects using preferred renderer (e.g. forward, backward)
 //            renderManager = new RenderManager(this, new ForwardRenderer(), false, true);
@@ -196,6 +206,9 @@
 
 //            //add sound
 //            Components.Add(soundManager);
+
+//            //add state
+//            Components.Add(stateManager);
 //        }
 
 //        /// <summary>
@@ -270,7 +283,14 @@
 //            }
 
 //            if (Input.Keys.WasJustPressed(Microsoft.Xna.Framework.Input.Keys.C))
-//                activeScene.CycleCameras();
+//                Application.SceneManager.ActiveScene.CycleCameras();
+
+//            //if (Input.Keys.WasJustPressed(Microsoft.Xna.Framework.Input.Keys.V))
+//            //{
+//            //    object[] parameters = { "main menu video" };
+//            //    EventDispatcher.Raise(new EventData(EventCategoryType.Video,
+//            //        EventActionType.OnPlay, parameters));
+//            //}
 
 //            if (Input.Mouse.WasJustClicked((MouseButton.Left)))
 //                Switch();
@@ -388,14 +408,26 @@
 //            //why not try the new and improved ContentDictionary instead of a basic Dictionary?
 //            fontDictionary = new ContentDictionary<SpriteFont>();
 //            modelDictionary = new ContentDictionary<Model>();
+
+//            //stores videos
+//            videoDictionary = new ContentDictionary<Video>();
 //        }
 
 //        private void LoadAssets()
 //        {
 //            LoadModels();
 //            LoadTextures();
+//            //LoadVideos();
 //            LoadSounds();
 //            LoadFonts();
+//        }
+
+//        /// <summary>
+//        /// Loads video content used by UIVideoTextureBehaviour
+//        /// </summary>
+//        private void LoadVideos()
+//        {
+//            videoDictionary.Add("Assets/Video/main_menu_video");
 //        }
 
 //        /// <summary>
@@ -458,7 +490,7 @@
 //            textureDictionary.Add("crate1", Content.Load<Texture2D>("Assets/Textures/Props/Crates/crate1"));
 
 //            //ui
-//            //textureDictionary.Add("ui_progress_32_8", Content.Load<Texture2D>("Assets/Textures/UI/Controls/ui_progress_32_8"));
+//            textureDictionary.Add("ui_progress_32_8", Content.Load<Texture2D>("Assets/Textures/UI/Controls/ui_progress_32_8"));
 //            textureDictionary.Add("progress_white", Content.Load<Texture2D>("Assets/Textures/UI/Controls/progress_white"));
 
 //            //menu
@@ -470,9 +502,9 @@
 
 //            //reticule
 //            textureDictionary.Add("reticuleOpen",
-//            Content.Load<Texture2D>("Assets/Textures/UI/Controls/reticuleOpen"));
+//      Content.Load<Texture2D>("Assets/Textures/UI/Controls/reticuleOpen"));
 //            textureDictionary.Add("reticuleDefault",
-//            Content.Load<Texture2D>("Assets/Textures/UI/Controls/reticuleDefault"));
+//          Content.Load<Texture2D>("Assets/Textures/UI/Controls/reticuleDefault"));
 //        }
 
 //        /// <summary>
@@ -480,11 +512,10 @@
 //        /// </summary>
 //        protected override void UnloadContent()
 //        {
-//            //TODO - add graceful dispose for content
-
 //            //remove all models used for the game and free RAM
 //            modelDictionary?.Dispose();
 //            fontDictionary?.Dispose();
+//            videoDictionary?.Dispose();
 
 //            base.UnloadContent();
 //        }
@@ -496,9 +527,7 @@
 //        /// </summary>
 //        private void InitializeLevel()
 //        {
-//            //Initialize color for UI
-//            cSwitch = Color.Blue;
-//            uiColor = Content.Load<Texture2D>("Blue_Frame");
+            
 
 //            float worldScale = 1000;
 //            activeScene = new Scene("level 1");
@@ -512,6 +541,12 @@
 //            //InitializeModels(activeScene);
 
 //            InitializeCollidables(activeScene, worldScale);
+
+//            //Colorshift Level
+
+//            //Initialize color for UI
+//            cSwitch = Color.Blue;
+//            uiColor = Content.Load<Texture2D>("Blue_Frame");
 
 //            // ColorSwitch Make walls + Neutral Platforms
 //            ColorSwitch game = new ColorSwitch();
@@ -707,6 +742,8 @@
 
 //            #endregion Add Text
 
+//            #region Add Reticule
+
 //            var defaultTexture = textureDictionary["reticuleDefault"];
 //            var alternateTexture = textureDictionary["reticuleOpen"];
 //            origin = defaultTexture.GetOriginAtCenter();
@@ -726,6 +763,35 @@
 //            reticule.AddComponent(new UIReticuleBehaviour());
 
 //            mainGameUIScene.Add(reticule);
+
+//            #endregion Add Reticule
+
+//            #region Add Video UI Texture
+
+//            ////add a health bar in the centre of the game window
+//            //texture = textureDictionary["checkerboard"]; //any texture given we will replace it
+//            //position = new Vector2(200, 200);
+
+//            //var video = videoDictionary["main_menu_video"];
+//            //origin = new Vector2(video.Width / 2, video.Height / 2);
+
+//            ////create the UI element
+//            //var videoTextureObj = new UITextureObject("main menu video",
+//            //    UIObjectType.Texture,
+//            //    new Transform2D(position, new Vector2(0.1f, 0.1f), 0),
+//            //    0,
+//            //    Color.White,
+//            //    origin,
+//            //    texture);
+
+//            ////add a video behaviou
+//            //videoTextureObj.AddComponent(new UIVideoTextureBehaviour(
+//            //    new VideoCue(video, 0, false, true)));
+
+//            ////add the ui element to the scene
+//            //mainGameUIScene.Add(videoTextureObj);
+
+//            #endregion Add Video UI Texture
 
 //            #region Add Scene To Manager & Set Active Scene
 
@@ -883,16 +949,18 @@
 //            //add components
 //            camera.AddComponent(new Camera(_graphics.GraphicsDevice.Viewport));
 
+//            //adding a collidable surface that enables acceleration, jumping
 //            var collider = new CharacterCollider(2, 2, true, false);
+
 //            camera.AddComponent(collider);
 //            collider.AddPrimitive(new Capsule(camera.Transform.LocalTranslation,
-//                Matrix.CreateRotationX(MathHelper.PiOver2), 1, 2),
+//                Matrix.CreateRotationX(MathHelper.PiOver2), 1, 3.6f),
 //                new MaterialProperties(0.2f, 0.8f, 0.7f));
 //            collider.Enable(false, 2);
 
 //            //add controller to actually move the collidable camera
 //            camera.AddComponent(new MyCollidableFirstPersonController(12,
-//                0.5f, 0.3f, new Vector2(0.006f, 0.004f)));
+//                        0.5f, 0.3f, new Vector2(0.006f, 0.004f)));
 
 //            //add to level
 //            level.Add(camera);

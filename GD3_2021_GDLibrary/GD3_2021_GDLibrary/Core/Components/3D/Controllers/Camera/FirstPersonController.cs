@@ -1,5 +1,8 @@
-﻿using Microsoft.Xna.Framework;
+﻿using GDLibrary.Inputs;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
+using GDLibrary.Components;
+
 
 namespace GDLibrary.Components
 {

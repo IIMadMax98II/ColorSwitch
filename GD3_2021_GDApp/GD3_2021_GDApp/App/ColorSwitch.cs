@@ -1,20 +1,15 @@
 ﻿using GDLibrary;
 using GDApp;
 using GDLibrary.Components;
-using GDLibrary.Core;
 using GDLibrary.Graphics;
-using GDLibrary.Inputs;
-using GDLibrary.Managers;
 using GDLibrary.Parameters;
-using GDLibrary.Renderers;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
-using System.Collections.Generic;
 
-namespace ColorSwitchGame
+namespace ColorSwitch
 {
-    class ColorSwitch
+    class FirstScene
     {
         /// <summary>
         /// Add Boundry walls to level.
