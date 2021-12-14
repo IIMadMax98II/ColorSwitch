@@ -6,6 +6,7 @@ using GDLibrary.Parameters;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using JigLibX.Collision;
 
 namespace ColorSwitch
 {
@@ -86,7 +87,7 @@ namespace ColorSwitch
             var shader = new BasicShader(Application.Content, true, true);
             var mesh = new CubeMesh();
             var material = new BasicMaterial("simple diffuse", shader, Color.White, 1, Content.Load<Texture2D>("Assets/ColorSwitch/Wall/Texture/BrickWall"));
-            var platform = new GameObject("platform", GameObjectType.Architecture, true);
+            var platform = new GameObject("Neutral Platform", GameObjectType.Ground, true);
 
             #endregion Archetype
 
@@ -108,6 +109,20 @@ namespace ColorSwitch
                         break;
                 }
                 clone.AddComponent(new MeshRenderer(mesh, material));
+
+
+                //add Collision Surface(s)
+                var collider = new Collider();
+
+                clone.AddComponent(collider);
+                collider.AddPrimitive(new JigLibX.Geometry.Box(
+                    clone.Transform.LocalTranslation, 
+                    clone.Transform.LocalRotation,
+                    clone.Transform.LocalScale), 
+                    new MaterialProperties(0.8f, 0.8f, 0.7f));
+                collider.Enable(true, 1);
+
+                // Add to Scene Manager
                 level.Add(clone);
             }
 
@@ -153,7 +168,21 @@ namespace ColorSwitch
                 }
 
                 platformObjectRSClone.AddComponent(new MeshRenderer(mesh, materialR));
+
+                //add Collision Surface(s)
+                var collider = new Collider();
+
+                platformObjectRSClone.AddComponent(collider);
+                collider.AddPrimitive(new JigLibX.Geometry.Box(
+                    platformObjectRSClone.Transform.LocalTranslation,
+                    platformObjectRSClone.Transform.LocalRotation,
+                    platformObjectRSClone.Transform.LocalScale),
+                    new MaterialProperties(0.8f, 0.8f, 0.7f));
+                collider.Enable(true, 1);
+
+                //Adds the switch method
                 platformObjectRSClone.AddComponent(new SwitchPlatform(true));
+                
                 platformObjectRSClone.Transform.SetScale(2, 0.5f, 2);
                 level.Add(platformObjectRSClone);
             }
@@ -177,7 +206,21 @@ namespace ColorSwitch
                 }
 
                 platformObjectBSClone.AddComponent(new MeshRenderer(mesh, materialB));
+
+                //add Collision Surface(s)
+                var collider = new Collider();
+
+                platformObjectBSClone.AddComponent(collider);
+                collider.AddPrimitive(new JigLibX.Geometry.Box(
+                    platformObjectBSClone.Transform.LocalTranslation,
+                    platformObjectBSClone.Transform.LocalRotation,
+                    platformObjectBSClone.Transform.LocalScale),
+                    new MaterialProperties(0.8f, 0.8f, 0.7f));
+                collider.Enable(true, 1);
+
+                //Adds the switch method
                 platformObjectBSClone.AddComponent(new SwitchPlatform(false));
+
                 platformObjectBSClone.Transform.SetScale(2, 0.5f, 2);
                 level.Add(platformObjectBSClone);
             }

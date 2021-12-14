@@ -748,7 +748,7 @@ namespace GDApp
             camera = new GameObject(AppData.CAMERA_FIRSTPERSON_COLLIDABLE_NAME, GameObjectType.Camera);
 
             //set initial position - important to set before the collider as collider capsule feeds off this position
-            camera.Transform.SetTranslation(0, 10, 40);
+            camera.Transform.SetTranslation(0, 10, 5);
 
             //add components
             camera.AddComponent(new Camera(_graphics.GraphicsDevice.Viewport));
@@ -785,7 +785,7 @@ namespace GDApp
         /// </summary>
         private void InitializeCollidables(Scene level, float worldScale = 500)
         {
-            InitializeCollidableGround(level, worldScale);
+            //InitializeCollidableGround(level, worldScale);
             //InitializeCollidableCubes(level);
             //InitializeCollidableModels(level);
             //InitializeCollidableTriangleMeshes(level);

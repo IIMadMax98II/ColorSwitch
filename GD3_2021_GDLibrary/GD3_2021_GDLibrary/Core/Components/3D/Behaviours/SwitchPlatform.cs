@@ -41,13 +41,18 @@ namespace GDLibrary.Components
                 {
                     isVisible = false;
                     material.Alpha = 0.5f;
-                    //TODO - Disable Collision
+
+                    //Disable Collision
+            
+                
                 }
                 else
                 {
                     isVisible = true;
                     material.Alpha = 1f;
-                    //TODO - Enable Collision
+
+                    //Enable Collision
+           
                 }
 
 
