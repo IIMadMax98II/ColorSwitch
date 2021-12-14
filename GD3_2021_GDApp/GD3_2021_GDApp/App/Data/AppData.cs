@@ -13,7 +13,7 @@ namespace GDApp
 
         #region Game Level Constants
 
-        public const string GAME_TITLE_NAME = "My Game Title Goes Here";
+        public const string GAME_TITLE_NAME = "Color Switch";
 
 #if HI_RES
         public const int GAME_RESOLUTION_WIDTH = 1920;

@@ -1,9 +1,9 @@
-﻿using GDLibrary;
-using GDLibrary.Components;
+﻿using GDLibrary.Components.UI;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
-
+using GDLibrary.Core;
+using System.Collections.Generic;
 
 namespace GDLibrary.Components
 {
@@ -13,12 +13,14 @@ namespace GDLibrary.Components
         private Texture2D uiColor;
         private Scene activeScene;
         private ContentManager Content;
-     
+        private UIScene mainUI;
+
+
         public SwitchBehavior(ContentManager Content, Scene activeScene)
         {
             this.activeScene = activeScene;
             this.Content = Content;
-
+       
             //Initialize color for UI
             this.cSwitch = Color.Blue;
             this.uiColor = Content.Load<Texture2D>("Blue_Frame");

@@ -95,10 +95,6 @@ namespace GDApp
         private UITextObject nameTextObj;
         private Collider collider;
 
-        /// TODO - Remove this
-        //private Texture2D uiColor;
-        //private Color cSwitch;
-
         #endregion Fields
 
         /// <summary>
@@ -382,6 +378,10 @@ namespace GDApp
             Content.Load<Texture2D>("Assets/Textures/UI/Controls/reticuleOpen"));
             textureDictionary.Add("reticuleDefault",
             Content.Load<Texture2D>("Assets/Textures/UI/Controls/reticuleDefault"));
+
+            //ColorSwitch
+            textureDictionary.Add("redHUD", Content.Load<Texture2D>("Assets/ColorSwitch/UI/Red_Frame"));
+            textureDictionary.Add("blueHUD", Content.Load<Texture2D>("Assets/ColorSwitch/UI/Blue_Frame"));
         }
 
         /// <summary>
@@ -567,104 +567,28 @@ namespace GDApp
             //create the scene
             var mainGameUIScene = new UIScene(AppData.UI_SCENE_MAIN_NAME);
 
-            #region Add Health Bar
+            //main background
+            var texture = textureDictionary["redHUD"];
+            //get how much we need to scale background to fit screen, then downsizes a little so we can see game behind background
+            var scale = _graphics.GetScaleForTexture(texture,
+                new Vector2(1f, 1f));
 
-            //add a health bar in the centre of the game window
-            var texture = textureDictionary["progress_white"];
-            var position = new Vector2(_graphics.PreferredBackBufferWidth / 2, 50);
-            var origin = new Vector2(texture.Width / 2, texture.Height / 2);
-
-            //create the UI element
-            var healthTextureObj = new UITextureObject("health",
+            var menuObject = new UITextureObject("RedHUD",
                 UIObjectType.Texture,
-                new Transform2D(position, new Vector2(2, 0.5f), 0),
+                new Transform2D(Screen.Instance.ScreenCentre, scale, 0), //sets position as center of screen
                 0,
-                Color.White,
-                origin,
+                new Color(255, 255, 255, 100),
+                texture.GetOriginAtCenter(), //if we want to position image on screen center then we need to set origin as texture center
                 texture);
 
-            //add a demo time based behaviour - because we can!
-            healthTextureObj.AddComponent(new UITimeColorFlipBehaviour(Color.White, Color.Red, 1000));
+            //add ui object to scene
+            mainGameUIScene.Add(menuObject);
 
-            //add a progress controller
-            healthTextureObj.AddComponent(new UIProgressBarController(5, 10));
+           // Camera mainCamera = level.GetAllActiveSceneCameras()[0];
 
-            //add the ui element to the scene
-            mainGameUIScene.Add(healthTextureObj);
-
-            #endregion Add Health Bar
-
-            #region Add Text
-
-            var font = fontDictionary["ui"];
-            var str = "player name";
-
-            //create the UI element
-            nameTextObj = new UITextObject(str, UIObjectType.Text,
-                new Transform2D(new Vector2(50, 50),
-                Vector2.One, 0),
-                0, font, "Brutus Maximus");
-
-            //  nameTextObj.Origin = font.MeasureString(str) / 2;
-            //  nameTextObj.AddComponent(new UIExpandFadeBehaviour());
-
-            //add the ui element to the scene
-            mainGameUIScene.Add(nameTextObj);
-
-            #endregion Add Text
-
-            #region Add Reticule
-
-            var defaultTexture = textureDictionary["reticuleDefault"];
-            var alternateTexture = textureDictionary["reticuleOpen"];
-            origin = defaultTexture.GetOriginAtCenter();
-
-            var reticule = new UITextureObject("reticule",
-                     UIObjectType.Texture,
-                new Transform2D(Vector2.Zero, Vector2.One, 0),
-                0,
-                Color.White,
-                SpriteEffects.None,
-                origin,
-                defaultTexture,
-                alternateTexture,
-                new Microsoft.Xna.Framework.Rectangle(0, 0,
-                defaultTexture.Width, defaultTexture.Height));
-
-            reticule.AddComponent(new UIReticuleBehaviour());
-
-            mainGameUIScene.Add(reticule);
-
-            #endregion Add Reticule
-
-            #region Add Video UI Texture
-
-            ////add a health bar in the centre of the game window
-            //texture = textureDictionary["checkerboard"]; //any texture given we will replace it
-            //position = new Vector2(200, 200);
-
-            //var video = videoDictionary["main_menu_video"];
-            //origin = new Vector2(video.Width / 2, video.Height / 2);
-
-            ////create the UI element
-            //var videoTextureObj = new UITextureObject("main menu video",
-            //    UIObjectType.Texture,
-            //    new Transform2D(position, new Vector2(0.1f, 0.1f), 0),
-            //    0,
-            //    Color.White,
-            //    origin,
-            //    texture);
-
-            ////add a video behaviou
-            //videoTextureObj.AddComponent(new UIVideoTextureBehaviour(
-            //    new VideoCue(video, 0, false, true)));
-
-            ////add the ui element to the scene
-            //mainGameUIScene.Add(videoTextureObj);
-
-            #endregion Add Video UI Texture
-
-            #region Add Scene To Manager & Set Active Scene
+            //Initialize UI
+            //mainCamera.GetComponent<SwitchBehavior>().Initialize(textureDictionary, _graphics, mainGameUIScene);
+            //mainCamera.GetComponent<SwitchBehavior>().Switch();
 
             //add the ui scene to the manager
             uiSceneManager.Add(mainGameUIScene);
@@ -674,6 +598,7 @@ namespace GDApp
 
             #endregion Add Scene To Manager & Set Active Scene
         }
+
 
         /// <summary>
         /// Adds component to draw debug info to the screen
@@ -822,7 +747,6 @@ namespace GDApp
 
             //Add the switch behavior
             camera.AddComponent(new SwitchBehavior(Content, activeScene));
-            camera.GetComponent<SwitchBehavior>().Switch();
 
             //adding a collidable surface that enables acceleration, jumping
             var collider = new CharacterCollider(2, 2, true, false);
@@ -857,8 +781,8 @@ namespace GDApp
         private void InitializeCollidables(Scene level, float worldScale = 500)
         {
             InitializeCollidableGround(level, worldScale);
-            InitializeCollidableCubes(level);
-            InitializeCollidableModels(level);
+            //InitializeCollidableCubes(level);
+            //InitializeCollidableModels(level);
             //InitializeCollidableTriangleMeshes(level);
         }
 
@@ -998,8 +922,6 @@ namespace GDApp
                 level.Add(clone);
             }
         }
-
-        #endregion Student/Group Specific Code
 
         /******************************* Demo (Remove For Release) *******************************/
 
