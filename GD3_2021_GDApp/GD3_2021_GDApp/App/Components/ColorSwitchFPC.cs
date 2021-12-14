@@ -1,5 +1,6 @@
 ﻿using GDLibrary;
 using GDLibrary.Components;
+using GDLibrary.Core;
 using GDLibrary.Inputs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
@@ -117,12 +118,8 @@ namespace GDApp
 
         protected override void HandleMouseInput()
         {
-            if (Input.Mouse.WasJustClicked((MouseButton.Left)))
-            {
-                gameObject.GetComponent<SwitchBehavior>().Switch();
-                Console.WriteLine("Switch");
-            }
-                
+            if (Input.Mouse.WasJustClicked(MouseButton.Left))
+                EventDispatcher.Raise(new EventData(EventCategoryType.MaterialChange, EventActionType.OnMouseClick));
 
             base.HandleMouseInput();
         }

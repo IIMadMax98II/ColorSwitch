@@ -4,6 +4,7 @@ using GDLibrary;
 using GDLibrary.Collections;
 using GDLibrary.Components;
 using GDLibrary.Components.UI;
+using Microsoft.Xna.Framework;
 using GDLibrary.Core;
 using GDLibrary.Core.Demo;
 using GDLibrary.Graphics;
@@ -14,7 +15,6 @@ using GDLibrary.Renderers;
 using GDLibrary.Utilities;
 using JigLibX.Collision;
 using JigLibX.Geometry;
-using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Media;
@@ -172,11 +172,12 @@ namespace GDApp
 
             //************* add all input components to component list so that they will be updated and/or drawn ***********/
 
+            //add time support
+            Components.Add(Time.GetInstance(this));
+
             //add event dispatcher
             Components.Add(eventDispatcher);
 
-            //add time support
-            Components.Add(Time.GetInstance(this));
 
             //add input support
             Components.Add(Input.Keys);
@@ -214,7 +215,7 @@ namespace GDApp
         /// </summary>
         /// <param name="gameTime"></param>
         protected override void Update(GameTime gameTime)
-        {
+        { 
             base.Update(gameTime);
         }
 
@@ -264,7 +265,7 @@ namespace GDApp
             Input.Mouse.Position = Screen.Instance.ScreenCentre;
 
             //turn on/off debug info
-            InitializeDebugUI(true, true);
+            InitializeDebugUI(true, false);
 
             //to show the menu we must start paused for everything else!
             EventDispatcher.Raise(new EventData(EventCategoryType.Menu, EventActionType.OnPause));
@@ -569,17 +570,24 @@ namespace GDApp
 
             //main background
             var texture = textureDictionary["redHUD"];
+            var secondTexture = textureDictionary["blueHUD"];
             //get how much we need to scale background to fit screen, then downsizes a little so we can see game behind background
             var scale = _graphics.GetScaleForTexture(texture,
-                new Vector2(1f, 1f));
+                new Vector2(0.58f, 0.55f));
 
-            var menuObject = new UITextureObject("RedHUD",
+            var menuObject = new UITextureObject("HUD",
                 UIObjectType.Texture,
-                new Transform2D(Screen.Instance.ScreenCentre, scale, 0), //sets position as center of screen
+                new Transform2D(Vector2.Zero, scale, 0), //sets position as center of screen
                 0,
-                new Color(255, 255, 255, 100),
-                texture.GetOriginAtCenter(), //if we want to position image on screen center then we need to set origin as texture center
-                texture);
+                new Color(255,255,255,255),
+                SpriteEffects.None,
+                Vector2.Zero, //if we want to position image on screen center then we need to set origin as texture center
+                texture,
+                secondTexture,
+                new Microsoft.Xna.Framework.Rectangle(0, 0,
+                texture.Width, texture.Height));
+
+            menuObject.AddComponent(new SwitchUI());
 
             //add ui object to scene
             mainGameUIScene.Add(menuObject);
@@ -744,9 +752,6 @@ namespace GDApp
 
             //add components
             camera.AddComponent(new Camera(_graphics.GraphicsDevice.Viewport));
-
-            //Add the switch behavior
-            camera.AddComponent(new SwitchBehavior(Content, activeScene));
 
             //adding a collidable surface that enables acceleration, jumping
             var collider = new CharacterCollider(2, 2, true, false);

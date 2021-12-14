@@ -75,7 +75,8 @@
         /// </summary>
         Picking,
         Inventory,
-        Video
+        Video,
+        MaterialChange
 
         //add more here...
     }
@@ -123,6 +124,7 @@
         OnVolumeChange,
         OnRemoveInventory,
         OnAddInventory,
+        OnMouseClick,
 
         //add more here...
     }

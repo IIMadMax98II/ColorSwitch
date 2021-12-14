@@ -17,6 +17,6 @@
         ///             this.color.A = 1f;
         ///     }
         /// </example>
-        void Switch(bool isRed);
+        void Switch();
     }
 }

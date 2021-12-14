@@ -130,7 +130,7 @@ namespace ColorSwitch
             
             var platformObjectRS = new GameObject("Platform Stationary Red", GameObjectType.Interactable, false);
             platformObjectRS.Transform.SetScale(2, 0.5f, 2);
-            var switcherR = new PlatformerSwitch(true);
+            var switcherR = new PlatformSwitch(true);
             platformObjectRS.AddComponent(switcherR);
 
             //Blue stationary platform
@@ -138,7 +138,7 @@ namespace ColorSwitch
 
             var platformObjectBS = new GameObject("Platform Stationary Blue", GameObjectType.Interactable, false);
             platformObjectBS.Transform.SetScale(2, 0.5f, 2);
-            var switcherB = new PlatformerSwitch(false);
+            var switcherB = new PlatformSwitch(false);
             platformObjectBS.AddComponent(switcherB);
 
             //Create Platform clone Red

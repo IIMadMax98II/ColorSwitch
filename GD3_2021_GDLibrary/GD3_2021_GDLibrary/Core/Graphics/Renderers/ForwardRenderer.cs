@@ -42,16 +42,16 @@ namespace GDLibrary.Renderers
             rasterizerStateTransparent = new RasterizerState();
             rasterizerStateTransparent.CullMode = CullMode.None;
 
+            //Remember this code from our initial aliasing problems with the Sky box?
+            //enable anti-aliasing along the edges of the quad i.e. to remove jagged edges to the primitive
+            Application.GraphicsDevice.SamplerStates[0] = SamplerState.LinearClamp;
+
             //set depth and blend state
             SetGraphicsStates(false);
         }
 
         public virtual void SetGraphicsStates(bool isOpaque)
         {
-            //Remember this code from our initial aliasing problems with the Sky box?
-            //enable anti-aliasing along the edges of the quad i.e. to remove jagged edges to the primitive
-            Application.GraphicsDevice.SamplerStates[0] = SamplerState.LinearClamp;
-
             if (isOpaque)
             {
                 //set the appropriate state for opaque objects
@@ -79,11 +79,6 @@ namespace GDLibrary.Renderers
             if (scene == null)
                 scene = Application.SceneManager.ActiveScene;
 
-            //set depth and blend state
-            graphicsDevice.DepthStencilState = DepthStencilState.Default;
-
-            // graphicsDevice.RasterizerState = rasterizerStateTransparent;
-
             //set viewport
             graphicsDevice.Viewport = camera.Viewport;
 
@@ -98,6 +93,9 @@ namespace GDLibrary.Renderers
                 if (material == null || renderer == null)
                     throw new NullReferenceException("This game object has no material and/or renderer!");
 
+                //set transparent or opaque based on object alpha
+                SetGraphicsStates(material.Alpha == 1);
+
                 //access the shader (e.g. BasicEffect) for this rendered game object
                 shader = material.Shader;
 
@@ -108,12 +106,8 @@ namespace GDLibrary.Renderers
                 shader.Pass(renderer);
 
                 //draw scene contents
-                renderer.Draw(graphicsDevice);
+                renderer.Draw(graphicsDevice, shader.Effect);
             }
-
-            //render post processing
-
-            //render ui
         }
     }
 }
