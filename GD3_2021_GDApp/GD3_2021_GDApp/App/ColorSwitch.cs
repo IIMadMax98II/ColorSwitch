@@ -130,16 +130,13 @@ namespace ColorSwitch
             
             var platformObjectRS = new GameObject("Platform Stationary Red", GameObjectType.Interactable, false);
             platformObjectRS.Transform.SetScale(2, 0.5f, 2);
-            var switcherR = new PlatformSwitch(true);
-            platformObjectRS.AddComponent(switcherR);
+            
 
             //Blue stationary platform
             var materialB = new BasicMaterial("blue", shader, Color.Blue, 1, Content.Load<Texture2D>("Assets/Textures/Props/Platforms/blue"));
 
             var platformObjectBS = new GameObject("Platform Stationary Blue", GameObjectType.Interactable, false);
             platformObjectBS.Transform.SetScale(2, 0.5f, 2);
-            var switcherB = new PlatformSwitch(false);
-            platformObjectBS.AddComponent(switcherB);
 
             //Create Platform clone Red
             for(int i = 0; i < 3; i++)
@@ -156,6 +153,7 @@ namespace ColorSwitch
                 }
 
                 platformObjectRSClone.AddComponent(new MeshRenderer(mesh, materialR));
+                platformObjectRSClone.AddComponent(new SwitchPlatform(true));
                 platformObjectRSClone.Transform.SetScale(2, 0.5f, 2);
                 level.Add(platformObjectRSClone);
             }
@@ -179,6 +177,7 @@ namespace ColorSwitch
                 }
 
                 platformObjectBSClone.AddComponent(new MeshRenderer(mesh, materialB));
+                platformObjectBSClone.AddComponent(new SwitchPlatform(false));
                 platformObjectBSClone.Transform.SetScale(2, 0.5f, 2);
                 level.Add(platformObjectBSClone);
             }

@@ -1,40 +1,94 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using GDLibrary.Core;
+using GDLibrary.Graphics;
+using Microsoft.Xna.Framework;
 
-namespace GDLibrary.Core.Components._3D.Behaviours
+namespace GDLibrary.Components
 {
-    class SwitchPlatform
+    class SwitchPlatform : Behaviour
     {
-        //static bool IsInteractable(GameObject gameObject)
-        //{
-        //    foreach (Component component in gameObject.Components)
-        //    {
-        //        if (component is IInteractable)
-        //            return true;
-        //    }
-        //    // return gO.Components is IInteractable;
-        //    return false;
-        //}
+            /// <summary>
+            /// Tell which color this gameobject has
+            /// </summary>
+            bool isVisible;
+            GameObject parent;
+            private BasicMaterial material;
+            private Vector3 originalColor;
+            private float originalAlpha;
 
-        //foreach (GameObject gameObject in activeScene.FindAll(IsInteractable))
-        //          {
-        //              foreach (Component component in gameObject.Components)
-        //              {
-        //                  if (component is IInteractable)
-        //                      (component as IInteractable).Switch(true);
-        //              }
-        //          }
+            public SwitchPlatform(bool isVisible)
+            {
+                this.isVisible = isVisible;
+            }
 
-        // other color (blue)
+            public override void Awake(GameObject gameObject)
+            {
+                parent = gameObject;
+                material = gameObject.GetComponent<Renderer>().Material as BasicMaterial;
 
-        //     foreach (GameObject gameObject in activeScene.FindAll(IsInteractable))
-        //                {
-        //                    foreach (Component component in gameObject.Components)
-        //                    {
-        //                        if (component is IInteractable)
-        //                            (component as IInteractable).Switch(false);
-        //}
-        //}
+                if (material != null)
+                {
+                    originalColor = material.DiffuseColor;
+                    originalAlpha = material.Alpha;
+                }
+
+                EventDispatcher.Subscribe(EventCategoryType.MaterialChange, HandleEvent);
+                base.Awake(gameObject);
+            }
+
+            public void Switch()
+            {
+                if (isVisible)
+                {
+                    isVisible = false;
+                    material.Alpha = 0.5f;
+                    //TODO - Disable Collision
+                }
+                else
+                {
+                    isVisible = true;
+                    material.Alpha = 1f;
+                    //TODO - Enable Collision
+                }
+
+
+            }
+
+            private void HandleEvent(EventData eventData)
+            {
+                Switch();
+            }
+        
+
     }
 }
+
+//static bool IsInteractable(GameObject gameObject)
+//{
+//    foreach (Component component in gameObject.Components)
+//    {
+//        if (component is IInteractable)
+//            return true;
+//    }
+//    // return gO.Components is IInteractable;
+//    return false;
+//}
+
+//foreach (GameObject gameObject in activeScene.FindAll(IsInteractable))
+//          {
+//              foreach (Component component in gameObject.Components)
+//              {
+//                  if (component is IInteractable)
+//                      (component as IInteractable).Switch(true);
+//              }
+//          }
+
+// other color (blue)
+
+//     foreach (GameObject gameObject in activeScene.FindAll(IsInteractable))
+//                {
+//                    foreach (Component component in gameObject.Components)
+//                    {
+//                        if (component is IInteractable)
+//                            (component as IInteractable).Switch(false);
+//}
+//}
