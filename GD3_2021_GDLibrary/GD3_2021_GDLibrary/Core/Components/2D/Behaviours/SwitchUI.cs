@@ -32,13 +32,13 @@ namespace GDLibrary.Components.UI
 
                 if (activeTexture)
                 {
-                    uiObject.Color = Color.Blue;
+                    uiObject.Color = Color.Red;
                     uiTextureObject.DefaultTexture = uiTextureObject.AlternateTexture;
                     activeTexture = false;
                 }
                 else
                 {
-                    uiObject.Color = Color.Red;
+                    uiObject.Color = Color.Blue;
                     uiTextureObject.DefaultTexture = originalDefaultTexture;
                     activeTexture = true;
                 }

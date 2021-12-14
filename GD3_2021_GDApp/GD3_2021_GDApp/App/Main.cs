@@ -567,10 +567,10 @@ namespace GDApp
         {
             //create the scene
             var mainGameUIScene = new UIScene(AppData.UI_SCENE_MAIN_NAME);
-
+            
             //main background
-            var texture = textureDictionary["redHUD"];
-            var secondTexture = textureDictionary["blueHUD"];
+            var texture = textureDictionary["blueHUD"];
+            var secondTexture = textureDictionary["redHUD"];
             //get how much we need to scale background to fit screen, then downsizes a little so we can see game behind background
             var scale = _graphics.GetScaleForTexture(texture,
                 new Vector2(0.58f, 0.55f));

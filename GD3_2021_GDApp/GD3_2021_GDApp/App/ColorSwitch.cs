@@ -230,6 +230,10 @@ namespace ColorSwitch
 
             //Red Moving Platform
             var platformObjectRMClone = platformObjectRS.Clone() as GameObject;
+            platformObjectRMClone.Name = "Clone - Platform Moving Red";
+            platformObjectRMClone.Transform.SetTranslation(4, 0, -18);
+
+            //Add Translation Curve
             translationCurve = new Curve3D(CurveLoopType.Cycle);
             translationCurve.Add(new Vector3(4, 0, -18), 0);
             translationCurve.Add(new Vector3(-4, 0, -18), 2000);
@@ -238,18 +242,52 @@ namespace ColorSwitch
 
             platformObjectRMClone.AddComponent(new MeshRenderer(mesh, materialR));
             platformObjectRMClone.Transform.SetScale(2, 0.5f, 2);
+
+            //add Collision Surface(s)
+            var colliderRM = new Collider();
+
+            platformObjectRMClone.AddComponent(colliderRM);
+            colliderRM.AddPrimitive(new JigLibX.Geometry.Box(
+                platformObjectRMClone.Transform.LocalTranslation,
+                platformObjectRMClone.Transform.LocalRotation,
+                platformObjectRMClone.Transform.LocalScale),
+                new MaterialProperties(0.8f, 0.8f, 0.7f));
+            colliderRM.Enable(true, 1);
+
+            //Adds the switch method
+            platformObjectRMClone.AddComponent(new SwitchPlatform(true));
+
             level.Add(platformObjectRMClone);
 
             //Blue Moving Platform
             var platformObjectBMClone = platformObjectBS.Clone() as GameObject;
+            platformObjectBMClone.Name = "Clone - Platform Moving Blue";
+            platformObjectBMClone.Transform.SetTranslation(-4, 0, -22);
+
+            //Add Translation Curve
             translationCurve = new Curve3D(CurveLoopType.Cycle);
             translationCurve.Add(new Vector3(-4, 0, -22), 0);
             translationCurve.Add(new Vector3(4, 0, -22), 2000);
             translationCurve.Add(new Vector3(-4, 0, -22), 4000);
             platformObjectBMClone.AddComponent(new CurveBehaviour(translationCurve));
 
-            platformObjectBMClone.AddComponent(new MeshRenderer(mesh, materialR));
+            platformObjectBMClone.AddComponent(new MeshRenderer(mesh, materialB));
             platformObjectBMClone.Transform.SetScale(2, 0.5f, 2);
+
+            //add Collision Surface(s)
+            var colliderBM = new Collider();
+
+            platformObjectBMClone.AddComponent(colliderBM);
+            colliderBM.AddPrimitive(new JigLibX.Geometry.Box(
+                platformObjectBMClone.Transform.LocalTranslation,
+                platformObjectBMClone.Transform.LocalRotation,
+                platformObjectBMClone.Transform.LocalScale),
+                new MaterialProperties(0.8f, 0.8f, 0.7f));
+            colliderBM.Enable(true, 1);
+
+            //Adds the switch method
+            platformObjectBMClone.AddComponent(new SwitchPlatform(false));
+
             level.Add(platformObjectBMClone);
         }
 
