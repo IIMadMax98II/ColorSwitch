@@ -26,20 +26,20 @@ namespace GDLibrary.Components.UI
         private void HandleEvent(EventData eventData)
         {
           
-
             if (eventData.EventActionType == EventActionType.OnMouseClick)
             {
 
                 if (activeTexture)
                 {
-                    uiObject.Color = Color.Red;
-                    uiTextureObject.DefaultTexture = uiTextureObject.AlternateTexture;
+                    uiObject.Color = Color.Blue;
+                    uiTextureObject.DefaultTexture = originalDefaultTexture;
                     activeTexture = false;
                 }
                 else
                 {
-                    uiObject.Color = Color.Blue;
-                    uiTextureObject.DefaultTexture = originalDefaultTexture;
+         
+                    uiObject.Color = Color.Red;
+                    uiTextureObject.DefaultTexture = uiTextureObject.AlternateTexture;
                     activeTexture = true;
                 }
             }

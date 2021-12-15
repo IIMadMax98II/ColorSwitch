@@ -353,11 +353,20 @@ namespace GDApp
             textureDictionary.Add("mona lisa", Content.Load<Texture2D>("Assets/Demo/Textures/mona lisa"));
 
             //skybox
-            textureDictionary.Add("skybox_front", Content.Load<Texture2D>("Assets/Textures/Skybox/front"));
-            textureDictionary.Add("skybox_left", Content.Load<Texture2D>("Assets/Textures/Skybox/left"));
-            textureDictionary.Add("skybox_right", Content.Load<Texture2D>("Assets/Textures/Skybox/right"));
-            textureDictionary.Add("skybox_back", Content.Load<Texture2D>("Assets/Textures/Skybox/back"));
-            textureDictionary.Add("skybox_sky", Content.Load<Texture2D>("Assets/Textures/Skybox/sky"));
+            textureDictionary.Add("skybox_front", Content.Load<Texture2D>("Assets/ColorSwitch/Skybox/Front_4k_TEX"));
+            textureDictionary.Add("skybox_left", Content.Load<Texture2D>("Assets/ColorSwitch/Skybox/Left_4k_TEX"));
+            textureDictionary.Add("skybox_right", Content.Load<Texture2D>("Assets/ColorSwitch/Skybox/Right_4k_TEX"));
+            textureDictionary.Add("skybox_back", Content.Load<Texture2D>("Assets/ColorSwitch/Skybox/Back_4k_TEX"));
+            textureDictionary.Add("skybox_top", Content.Load<Texture2D>("Assets/ColorSwitch/Skybox/Up_4k_TEX"));
+            textureDictionary.Add("skybox_bottom", Content.Load<Texture2D>("Assets/ColorSwitch/Skybox/Down_4k_TEX"));
+            
+            //OriginalSkybox
+
+            //textureDictionary.Add("skybox_front", Content.Load<Texture2D>("Assets/Textures/Skybox/front"));
+            //textureDictionary.Add("skybox_left", Content.Load<Texture2D>("Assets/Textures/Skybox/left"));
+            //textureDictionary.Add("skybox_right", Content.Load<Texture2D>("Assets/Textures/Skybox/right"));
+            //textureDictionary.Add("skybox_back", Content.Load<Texture2D>("Assets/Textures/Skybox/back"));
+            //textureDictionary.Add("skybox_sky", Content.Load<Texture2D>("Assets/Textures/Skybox/sky"));
 
             //environment
             textureDictionary.Add("grass", Content.Load<Texture2D>("Assets/Textures/Foliage/Ground/grass1"));
@@ -414,17 +423,10 @@ namespace GDApp
 
             InitializeSkybox(activeScene, worldScale);
 
-            //remove because now we are interested only in collidable things!
-            //InitializeCubes(activeScene);
-            //InitializeModels(activeScene);
-
-            InitializeCollidables(activeScene, worldScale);
-
             //Colorshift Level
 
             // ColorSwitch Make walls + Neutral Platforms
             FirstScene game = new FirstScene();
-            game.InitializeBounds(activeScene, Content);
             game.InitializeNeutralPlatforms(activeScene, Content);
 
             //Load platforms
@@ -683,12 +685,23 @@ namespace GDApp
 
             //top
             clone = archetypalQuad.Clone() as GameObject;
-            clone.Name = "skybox_sky";
+            clone.Name = "skybox_top";
             clone.Transform.Translate(0, worldScale / 2.0f, 0);
             clone.Transform.Scale(worldScale, worldScale, null);
-            clone.Transform.Rotate(90, -90, 0);
-            clone.AddComponent(new MeshRenderer(mesh, new BasicMaterial("skybox_sky_material", shader, Color.White, 1, textureDictionary["skybox_sky"])));
+            clone.Transform.Rotate(90, 180, 0);
+            clone.AddComponent(new MeshRenderer(mesh, new BasicMaterial("skybox_sky_material", shader, Color.White, 1, textureDictionary["skybox_top"])));
             level.Add(clone);
+
+            //bottom
+            clone = archetypalQuad.Clone() as GameObject;
+            clone.Name = "skybox_bottom";
+            clone.Transform.Translate(0, - worldScale / 2.0f, 0);
+            clone.Transform.Scale(worldScale, worldScale, null);
+            clone.Transform.Rotate(90, 0, 180);
+            clone.AddComponent(new MeshRenderer(mesh, new BasicMaterial("skybox_sky_material", shader, Color.White, 1, textureDictionary["skybox_bottom"])));
+            level.Add(clone);
+
+
         }
 
         /// <summary>

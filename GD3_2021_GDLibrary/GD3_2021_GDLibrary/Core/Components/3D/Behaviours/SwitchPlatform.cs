@@ -10,16 +10,16 @@ namespace GDLibrary.Components
         /// <summary>
         /// Tell which color this gameobject has
         /// </summary>
-        bool isRed;
+        bool isVisible;
         GameObject parent;
         private BasicMaterial material;
         private Body body;
         private Vector3 originalColor;
         private float originalAlpha;
 
-        public SwitchPlatform(bool isRed)
+        public SwitchPlatform(bool isVisible)
         {
-            this.isRed = isRed;
+            this.isVisible = isVisible;
         }
 
         public override void Awake(GameObject gameObject)
@@ -37,14 +37,16 @@ namespace GDLibrary.Components
 
             EventDispatcher.Subscribe(EventCategoryType.MaterialChange, HandleEvent);
             base.Awake(gameObject);
+
+            Switch();
         }
 
         public void Switch()
         {
-            if (isRed)
+            if (isVisible)
             {
-                isRed = false;
-                material.Alpha = 0.5f;
+                isVisible = false;
+                material.Alpha = 0.1f;
 
                 //Disable Collision
                 body.DisableBody();
@@ -52,7 +54,7 @@ namespace GDLibrary.Components
             }
             else
             {
-                isRed = true;
+                isVisible = true;
                 material.Alpha = 1f;
 
                 //Enable Collision
