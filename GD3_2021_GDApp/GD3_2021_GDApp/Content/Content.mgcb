@@ -32,25 +32,6 @@
 /processorParam:TextureFormat=Compressed
 /build:Assets/ColorSwitch/Chest/dfk_chest_02_closed.fbx
 
-#begin Assets/ColorSwitch/Chest/dfk_chest_02_closed.fbx
-/importer:FbxImporter
-/processor:ModelProcessor
-/processorParam:ColorKeyColor=0,0,0,0
-/processorParam:ColorKeyEnabled=True
-/processorParam:DefaultEffect=BasicEffect
-/processorParam:GenerateMipmaps=True
-/processorParam:GenerateTangentFrames=False
-/processorParam:PremultiplyTextureAlpha=True
-/processorParam:PremultiplyVertexColors=True
-/processorParam:ResizeTexturesToPowerOfTwo=False
-/processorParam:RotationX=0
-/processorParam:RotationY=0
-/processorParam:RotationZ=0
-/processorParam:Scale=1
-/processorParam:SwapWindingOrder=False
-/processorParam:TextureFormat=Compressed
-/build:Assets/ColorSwitch/Chest/dfk_chest_02_closed.fbx
-
 #begin Assets/ColorSwitch/Chest/Materials/dfk_small_containers_brown_basecolor.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -62,30 +43,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Assets/ColorSwitch/Chest/Materials/dfk_small_containers_brown_basecolor.png
-
-#begin Assets/ColorSwitch/Chest/Materials/dfk_small_containers_brown_basecolor.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Assets/ColorSwitch/Chest/Materials/dfk_small_containers_brown_basecolor.png
-
-#begin Assets/ColorSwitch/Chest/Materials/dfk_small_containers_normal.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Assets/ColorSwitch/Chest/Materials/dfk_small_containers_normal.png
 
 #begin Assets/ColorSwitch/Chest/Materials/dfk_small_containers_normal.png
 /importer:TextureImporter
@@ -111,18 +68,6 @@
 /processorParam:TextureFormat=Color
 /build:Assets/ColorSwitch/Chest/Materials/dfk_small_containers_SmMetAO.png
 
-#begin Assets/ColorSwitch/Chest/Materials/dfk_small_containers_SmMetAO.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Assets/ColorSwitch/Chest/Materials/dfk_small_containers_SmMetAO.png
-
 #begin Assets/ColorSwitch/Effects/00_4x4.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -134,30 +79,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Assets/ColorSwitch/Effects/00_4x4.png
-
-#begin Assets/ColorSwitch/Effects/00_4x4.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Assets/ColorSwitch/Effects/00_4x4.png
-
-#begin Assets/ColorSwitch/Effects/bg.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Assets/ColorSwitch/Effects/bg.png
 
 #begin Assets/ColorSwitch/Effects/bg.png
 /importer:TextureImporter
@@ -183,18 +104,6 @@
 /processorParam:TextureFormat=Color
 /build:Assets/ColorSwitch/Effects/circle.png
 
-#begin Assets/ColorSwitch/Effects/circle.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Assets/ColorSwitch/Effects/circle.png
-
 #begin Assets/ColorSwitch/Effects/dust_b.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -206,30 +115,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Assets/ColorSwitch/Effects/dust_b.png
-
-#begin Assets/ColorSwitch/Effects/dust_b.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Assets/ColorSwitch/Effects/dust_b.png
-
-#begin Assets/ColorSwitch/Effects/explosion_4x4.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Assets/ColorSwitch/Effects/explosion_4x4.png
 
 #begin Assets/ColorSwitch/Effects/explosion_4x4.png
 /importer:TextureImporter
@@ -255,18 +140,6 @@
 /processorParam:TextureFormat=Color
 /build:Assets/ColorSwitch/Effects/fire_8x2.png
 
-#begin Assets/ColorSwitch/Effects/fire_8x2.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Assets/ColorSwitch/Effects/fire_8x2.png
-
 #begin Assets/ColorSwitch/Effects/frame_ball_00.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -278,30 +151,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Assets/ColorSwitch/Effects/frame_ball_00.png
-
-#begin Assets/ColorSwitch/Effects/frame_ball_00.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Assets/ColorSwitch/Effects/frame_ball_00.png
-
-#begin Assets/ColorSwitch/Effects/greenCore_4x4.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Assets/ColorSwitch/Effects/greenCore_4x4.png
 
 #begin Assets/ColorSwitch/Effects/greenCore_4x4.png
 /importer:TextureImporter
@@ -327,18 +176,6 @@
 /processorParam:TextureFormat=Color
 /build:Assets/ColorSwitch/Effects/hit_4x2.png
 
-#begin Assets/ColorSwitch/Effects/hit_4x2.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Assets/ColorSwitch/Effects/hit_4x2.png
-
 #begin Assets/ColorSwitch/Effects/project1_00000_8x2.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -350,30 +187,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Assets/ColorSwitch/Effects/project1_00000_8x2.png
-
-#begin Assets/ColorSwitch/Effects/project1_00000_8x2.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Assets/ColorSwitch/Effects/project1_00000_8x2.png
-
-#begin Assets/ColorSwitch/Effects/project1_coreb00000_4x4.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Assets/ColorSwitch/Effects/project1_coreb00000_4x4.png
 
 #begin Assets/ColorSwitch/Effects/project1_coreb00000_4x4.png
 /importer:TextureImporter
@@ -399,18 +212,6 @@
 /processorParam:TextureFormat=Color
 /build:Assets/ColorSwitch/Effects/project1_in00000_4x4.png
 
-#begin Assets/ColorSwitch/Effects/project1_in00000_4x4.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Assets/ColorSwitch/Effects/project1_in00000_4x4.png
-
 #begin Assets/ColorSwitch/Effects/project2_4x4.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -422,30 +223,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Assets/ColorSwitch/Effects/project2_4x4.png
-
-#begin Assets/ColorSwitch/Effects/project2_4x4.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Assets/ColorSwitch/Effects/project2_4x4.png
-
-#begin Assets/ColorSwitch/Effects/skill_6x2.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Assets/ColorSwitch/Effects/skill_6x2.png
 
 #begin Assets/ColorSwitch/Effects/skill_6x2.png
 /importer:TextureImporter
@@ -471,18 +248,6 @@
 /processorParam:TextureFormat=Color
 /build:Assets/ColorSwitch/Effects/skill_core_4x4.png
 
-#begin Assets/ColorSwitch/Effects/skill_core_4x4.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Assets/ColorSwitch/Effects/skill_core_4x4.png
-
 #begin Assets/ColorSwitch/Effects/skill_sw_4x2.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -494,30 +259,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Assets/ColorSwitch/Effects/skill_sw_4x2.png
-
-#begin Assets/ColorSwitch/Effects/skill_sw_4x2.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Assets/ColorSwitch/Effects/skill_sw_4x2.png
-
-#begin Assets/ColorSwitch/Effects/skill_sw_4x3.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Assets/ColorSwitch/Effects/skill_sw_4x3.png
 
 #begin Assets/ColorSwitch/Effects/skill_sw_4x3.png
 /importer:TextureImporter
@@ -543,18 +284,6 @@
 /processorParam:TextureFormat=Color
 /build:Assets/ColorSwitch/Effects/smoke_4x4.png
 
-#begin Assets/ColorSwitch/Effects/smoke_4x4.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Assets/ColorSwitch/Effects/smoke_4x4.png
-
 #begin Assets/ColorSwitch/Effects/spark00.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -566,30 +295,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Assets/ColorSwitch/Effects/spark00.png
-
-#begin Assets/ColorSwitch/Effects/spark00.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Assets/ColorSwitch/Effects/spark00.png
-
-#begin Assets/ColorSwitch/Effects/Star.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Assets/ColorSwitch/Effects/Star.png
 
 #begin Assets/ColorSwitch/Effects/Star.png
 /importer:TextureImporter
@@ -615,18 +320,6 @@
 /processorParam:TextureFormat=Color
 /build:Assets/ColorSwitch/Effects/thander_core_4x4.png
 
-#begin Assets/ColorSwitch/Effects/thander_core_4x4.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Assets/ColorSwitch/Effects/thander_core_4x4.png
-
 #begin Assets/ColorSwitch/Effects/whity_4x4.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -638,37 +331,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Assets/ColorSwitch/Effects/whity_4x4.png
-
-#begin Assets/ColorSwitch/Effects/whity_4x4.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Assets/ColorSwitch/Effects/whity_4x4.png
-
-#begin Assets/ColorSwitch/Furniture/dfk_bed_single_02.fbx
-/importer:FbxImporter
-/processor:ModelProcessor
-/processorParam:ColorKeyColor=0,0,0,0
-/processorParam:ColorKeyEnabled=True
-/processorParam:DefaultEffect=BasicEffect
-/processorParam:GenerateMipmaps=True
-/processorParam:GenerateTangentFrames=False
-/processorParam:PremultiplyTextureAlpha=True
-/processorParam:PremultiplyVertexColors=True
-/processorParam:ResizeTexturesToPowerOfTwo=False
-/processorParam:RotationX=0
-/processorParam:RotationY=0
-/processorParam:RotationZ=0
-/processorParam:Scale=1
-/processorParam:SwapWindingOrder=False
-/processorParam:TextureFormat=Compressed
-/build:Assets/ColorSwitch/Furniture/dfk_bed_single_02.fbx
 
 #begin Assets/ColorSwitch/Furniture/dfk_bed_single_02.fbx
 /importer:FbxImporter
@@ -708,25 +370,6 @@
 /processorParam:TextureFormat=Compressed
 /build:Assets/ColorSwitch/Furniture/dfk_chairs.fbx
 
-#begin Assets/ColorSwitch/Furniture/dfk_chairs.fbx
-/importer:FbxImporter
-/processor:ModelProcessor
-/processorParam:ColorKeyColor=0,0,0,0
-/processorParam:ColorKeyEnabled=True
-/processorParam:DefaultEffect=BasicEffect
-/processorParam:GenerateMipmaps=True
-/processorParam:GenerateTangentFrames=False
-/processorParam:PremultiplyTextureAlpha=True
-/processorParam:PremultiplyVertexColors=True
-/processorParam:ResizeTexturesToPowerOfTwo=False
-/processorParam:RotationX=0
-/processorParam:RotationY=0
-/processorParam:RotationZ=0
-/processorParam:Scale=1
-/processorParam:SwapWindingOrder=False
-/processorParam:TextureFormat=Compressed
-/build:Assets/ColorSwitch/Furniture/dfk_chairs.fbx
-
 #begin Assets/ColorSwitch/Furniture/dfk_desks.fbx
 /importer:FbxImporter
 /processor:ModelProcessor
@@ -745,44 +388,6 @@
 /processorParam:SwapWindingOrder=False
 /processorParam:TextureFormat=Compressed
 /build:Assets/ColorSwitch/Furniture/dfk_desks.fbx
-
-#begin Assets/ColorSwitch/Furniture/dfk_desks.fbx
-/importer:FbxImporter
-/processor:ModelProcessor
-/processorParam:ColorKeyColor=0,0,0,0
-/processorParam:ColorKeyEnabled=True
-/processorParam:DefaultEffect=BasicEffect
-/processorParam:GenerateMipmaps=True
-/processorParam:GenerateTangentFrames=False
-/processorParam:PremultiplyTextureAlpha=True
-/processorParam:PremultiplyVertexColors=True
-/processorParam:ResizeTexturesToPowerOfTwo=False
-/processorParam:RotationX=0
-/processorParam:RotationY=0
-/processorParam:RotationZ=0
-/processorParam:Scale=1
-/processorParam:SwapWindingOrder=False
-/processorParam:TextureFormat=Compressed
-/build:Assets/ColorSwitch/Furniture/dfk_desks.fbx
-
-#begin Assets/ColorSwitch/Furniture/dfk_shelves_01.fbx
-/importer:FbxImporter
-/processor:ModelProcessor
-/processorParam:ColorKeyColor=0,0,0,0
-/processorParam:ColorKeyEnabled=True
-/processorParam:DefaultEffect=BasicEffect
-/processorParam:GenerateMipmaps=True
-/processorParam:GenerateTangentFrames=False
-/processorParam:PremultiplyTextureAlpha=True
-/processorParam:PremultiplyVertexColors=True
-/processorParam:ResizeTexturesToPowerOfTwo=False
-/processorParam:RotationX=0
-/processorParam:RotationY=0
-/processorParam:RotationZ=0
-/processorParam:Scale=1
-/processorParam:SwapWindingOrder=False
-/processorParam:TextureFormat=Compressed
-/build:Assets/ColorSwitch/Furniture/dfk_shelves_01.fbx
 
 #begin Assets/ColorSwitch/Furniture/dfk_shelves_01.fbx
 /importer:FbxImporter
@@ -822,25 +427,6 @@
 /processorParam:TextureFormat=Compressed
 /build:Assets/ColorSwitch/Furniture/dfk_wardrobe_01.fbx
 
-#begin Assets/ColorSwitch/Furniture/dfk_wardrobe_01.fbx
-/importer:FbxImporter
-/processor:ModelProcessor
-/processorParam:ColorKeyColor=0,0,0,0
-/processorParam:ColorKeyEnabled=True
-/processorParam:DefaultEffect=BasicEffect
-/processorParam:GenerateMipmaps=True
-/processorParam:GenerateTangentFrames=False
-/processorParam:PremultiplyTextureAlpha=True
-/processorParam:PremultiplyVertexColors=True
-/processorParam:ResizeTexturesToPowerOfTwo=False
-/processorParam:RotationX=0
-/processorParam:RotationY=0
-/processorParam:RotationZ=0
-/processorParam:Scale=1
-/processorParam:SwapWindingOrder=False
-/processorParam:TextureFormat=Compressed
-/build:Assets/ColorSwitch/Furniture/dfk_wardrobe_01.fbx
-
 #begin Assets/ColorSwitch/Furniture/Materials/dfk_bed_single_01_basecolor.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -852,30 +438,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Assets/ColorSwitch/Furniture/Materials/dfk_bed_single_01_basecolor.png
-
-#begin Assets/ColorSwitch/Furniture/Materials/dfk_bed_single_01_basecolor.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Assets/ColorSwitch/Furniture/Materials/dfk_bed_single_01_basecolor.png
-
-#begin Assets/ColorSwitch/Furniture/Materials/dfk_bed_single_01_normal.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Assets/ColorSwitch/Furniture/Materials/dfk_bed_single_01_normal.png
 
 #begin Assets/ColorSwitch/Furniture/Materials/dfk_bed_single_01_normal.png
 /importer:TextureImporter
@@ -901,18 +463,6 @@
 /processorParam:TextureFormat=Color
 /build:Assets/ColorSwitch/Furniture/Materials/dfk_bed_single_01_SmMetAO.png
 
-#begin Assets/ColorSwitch/Furniture/Materials/dfk_bed_single_01_SmMetAO.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Assets/ColorSwitch/Furniture/Materials/dfk_bed_single_01_SmMetAO.png
-
 #begin Assets/ColorSwitch/Furniture/Materials/dfk_chair_01_basecolor.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -924,30 +474,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Assets/ColorSwitch/Furniture/Materials/dfk_chair_01_basecolor.png
-
-#begin Assets/ColorSwitch/Furniture/Materials/dfk_chair_01_basecolor.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Assets/ColorSwitch/Furniture/Materials/dfk_chair_01_basecolor.png
-
-#begin Assets/ColorSwitch/Furniture/Materials/dfk_chair_01_normal.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Assets/ColorSwitch/Furniture/Materials/dfk_chair_01_normal.png
 
 #begin Assets/ColorSwitch/Furniture/Materials/dfk_chair_01_normal.png
 /importer:TextureImporter
@@ -973,18 +499,6 @@
 /processorParam:TextureFormat=Color
 /build:Assets/ColorSwitch/Furniture/Materials/dfk_chair_01_SmMetAO.png
 
-#begin Assets/ColorSwitch/Furniture/Materials/dfk_chair_01_SmMetAO.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Assets/ColorSwitch/Furniture/Materials/dfk_chair_01_SmMetAO.png
-
 #begin Assets/ColorSwitch/Furniture/Materials/dfk_desks_01_basecolor.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -996,30 +510,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Assets/ColorSwitch/Furniture/Materials/dfk_desks_01_basecolor.png
-
-#begin Assets/ColorSwitch/Furniture/Materials/dfk_desks_01_basecolor.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Assets/ColorSwitch/Furniture/Materials/dfk_desks_01_basecolor.png
-
-#begin Assets/ColorSwitch/Furniture/Materials/dfk_desks_01_normal.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Assets/ColorSwitch/Furniture/Materials/dfk_desks_01_normal.png
 
 #begin Assets/ColorSwitch/Furniture/Materials/dfk_desks_01_normal.png
 /importer:TextureImporter
@@ -1045,18 +535,6 @@
 /processorParam:TextureFormat=Color
 /build:Assets/ColorSwitch/Furniture/Materials/dfk_desks_01_SmMetAO.png
 
-#begin Assets/ColorSwitch/Furniture/Materials/dfk_desks_01_SmMetAO.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Assets/ColorSwitch/Furniture/Materials/dfk_desks_01_SmMetAO.png
-
 #begin Assets/ColorSwitch/Furniture/Materials/dfk_shelves_01_basecolor.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -1068,30 +546,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Assets/ColorSwitch/Furniture/Materials/dfk_shelves_01_basecolor.png
-
-#begin Assets/ColorSwitch/Furniture/Materials/dfk_shelves_01_basecolor.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Assets/ColorSwitch/Furniture/Materials/dfk_shelves_01_basecolor.png
-
-#begin Assets/ColorSwitch/Furniture/Materials/dfk_shelves_01_normal.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Assets/ColorSwitch/Furniture/Materials/dfk_shelves_01_normal.png
 
 #begin Assets/ColorSwitch/Furniture/Materials/dfk_shelves_01_normal.png
 /importer:TextureImporter
@@ -1117,18 +571,6 @@
 /processorParam:TextureFormat=Color
 /build:Assets/ColorSwitch/Furniture/Materials/dfk_shelves_01_SmMetAO.png
 
-#begin Assets/ColorSwitch/Furniture/Materials/dfk_shelves_01_SmMetAO.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Assets/ColorSwitch/Furniture/Materials/dfk_shelves_01_SmMetAO.png
-
 #begin Assets/ColorSwitch/Furniture/Materials/dfk_wardrobe_01_basecolor.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -1140,30 +582,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Assets/ColorSwitch/Furniture/Materials/dfk_wardrobe_01_basecolor.png
-
-#begin Assets/ColorSwitch/Furniture/Materials/dfk_wardrobe_01_basecolor.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Assets/ColorSwitch/Furniture/Materials/dfk_wardrobe_01_basecolor.png
-
-#begin Assets/ColorSwitch/Furniture/Materials/dfk_wardrobe_01_normal.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Assets/ColorSwitch/Furniture/Materials/dfk_wardrobe_01_normal.png
 
 #begin Assets/ColorSwitch/Furniture/Materials/dfk_wardrobe_01_normal.png
 /importer:TextureImporter
@@ -1189,18 +607,6 @@
 /processorParam:TextureFormat=Color
 /build:Assets/ColorSwitch/Furniture/Materials/dfk_wardrobe_01_SmMetAO.png
 
-#begin Assets/ColorSwitch/Furniture/Materials/dfk_wardrobe_01_SmMetAO.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Assets/ColorSwitch/Furniture/Materials/dfk_wardrobe_01_SmMetAO.png
-
 #begin Assets/ColorSwitch/Skybox/Back_4K_TEX.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -1212,30 +618,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Assets/ColorSwitch/Skybox/Back_4K_TEX.png
-
-#begin Assets/ColorSwitch/Skybox/Back_4K_TEX.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Assets/ColorSwitch/Skybox/Back_4K_TEX.png
-
-#begin Assets/ColorSwitch/Skybox/Down_4K_TEX.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Assets/ColorSwitch/Skybox/Down_4K_TEX.png
 
 #begin Assets/ColorSwitch/Skybox/Down_4K_TEX.png
 /importer:TextureImporter
@@ -1261,18 +643,6 @@
 /processorParam:TextureFormat=Color
 /build:Assets/ColorSwitch/Skybox/Front_4K_TEX.png
 
-#begin Assets/ColorSwitch/Skybox/Front_4K_TEX.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Assets/ColorSwitch/Skybox/Front_4K_TEX.png
-
 #begin Assets/ColorSwitch/Skybox/Left_4K_TEX.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -1284,30 +654,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Assets/ColorSwitch/Skybox/Left_4K_TEX.png
-
-#begin Assets/ColorSwitch/Skybox/Left_4K_TEX.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Assets/ColorSwitch/Skybox/Left_4K_TEX.png
-
-#begin Assets/ColorSwitch/Skybox/Right_4K_TEX.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Assets/ColorSwitch/Skybox/Right_4K_TEX.png
 
 #begin Assets/ColorSwitch/Skybox/Right_4K_TEX.png
 /importer:TextureImporter
@@ -1333,30 +679,6 @@
 /processorParam:TextureFormat=Color
 /build:Assets/ColorSwitch/Skybox/Up_4K_TEX.png
 
-#begin Assets/ColorSwitch/Skybox/Up_4K_TEX.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Assets/ColorSwitch/Skybox/Up_4K_TEX.png
-
-#begin Assets/ColorSwitch/UI/Blue_Frame.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Assets/ColorSwitch/UI/Blue_Frame.png
-
 #begin Assets/ColorSwitch/UI/Blue_Frame.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -1381,7 +703,7 @@
 /processorParam:TextureFormat=Color
 /build:Assets/ColorSwitch/UI/Red_frame.png
 
-#begin Assets/ColorSwitch/UI/Red_frame.png
+#begin Assets/ColorSwitch/UI/Title.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1391,19 +713,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Assets/ColorSwitch/UI/Red_frame.png
-
-#begin Assets/ColorSwitch/Wall/Texture/BrickWall.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Assets/ColorSwitch/Wall/Texture/BrickWall.png
+/build:Assets/ColorSwitch/UI/Title.png
 
 #begin Assets/ColorSwitch/Wall/Texture/BrickWall.png
 /importer:TextureImporter
@@ -1787,6 +1097,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Assets/Textures/UI/Backgrounds/exitmenuwithtrans.png
+
+#begin Assets/Textures/UI/Backgrounds/graymenu.jpg
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Assets/Textures/UI/Backgrounds/graymenu.jpg
 
 #begin Assets/Textures/UI/Backgrounds/mainmenu.PNG
 /importer:TextureImporter

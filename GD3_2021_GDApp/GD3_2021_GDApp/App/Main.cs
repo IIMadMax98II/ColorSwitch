@@ -378,6 +378,7 @@ namespace GDApp
 
             //menu
             textureDictionary.Add("mainmenu", Content.Load<Texture2D>("Assets/Textures/UI/Backgrounds/mainmenu"));
+            textureDictionary.Add("graymenu", Content.Load<Texture2D>("Assets/Textures/UI/Backgrounds/graymenu"));
             textureDictionary.Add("audiomenu", Content.Load<Texture2D>("Assets/Textures/UI/Backgrounds/audiomenu"));
             textureDictionary.Add("controlsmenu", Content.Load<Texture2D>("Assets/Textures/UI/Backgrounds/controlsmenu"));
             textureDictionary.Add("exitmenuwithtrans", Content.Load<Texture2D>("Assets/Textures/UI/Backgrounds/exitmenuwithtrans"));
@@ -392,6 +393,7 @@ namespace GDApp
             //ColorSwitch
             textureDictionary.Add("redHUD", Content.Load<Texture2D>("Assets/ColorSwitch/UI/Red_Frame"));
             textureDictionary.Add("blueHUD", Content.Load<Texture2D>("Assets/ColorSwitch/UI/Blue_Frame"));
+            textureDictionary.Add("title", Content.Load<Texture2D>("Assets/ColorSwitch/UI/Title"));
         }
 
         /// <summary>
@@ -463,22 +465,33 @@ namespace GDApp
             /**************************** Background Image ****************************/
 
             //main background
-            var texture = textureDictionary["mainmenu"];
+            var texture = textureDictionary["graymenu"];
             //get how much we need to scale background to fit screen, then downsizes a little so we can see game behind background
             var scale = _graphics.GetScaleForTexture(texture,
-                new Vector2(0.8f, 0.8f));
+                new Vector2(0.5f, 0.5f));
 
             menuObject = new UITextureObject("main background",
                 UIObjectType.Texture,
                 new Transform2D(Screen.Instance.ScreenCentre, scale, 0), //sets position as center of screen
                 0,
-                new Color(255, 255, 255, 200),
+                new Color(255, 255, 255, 150),
                 texture.GetOriginAtCenter(), //if we want to position image on screen center then we need to set origin as texture center
                 texture);
 
             //add ui object to scene
             mainMenuUIScene.Add(menuObject);
 
+            //title
+            var titletexture = textureDictionary["title"];
+            menuObject = new UITextureObject("game title",
+               UIObjectType.Texture,
+               new Transform2D(Screen.Instance.ScreenCentre + new Vector2(0f,-200f) , new Vector2(1.3f,1.3f), 0), //sets position as center of screen
+               0,
+               new Color(255, 255, 255, 255),
+               titletexture.GetOriginAtCenter(), //if we want to position image on screen center then we need to set origin as texture center
+               titletexture);
+
+            mainMenuUIScene.Add(menuObject);
             /**************************** Play Button ****************************/
 
             var btnTexture = textureDictionary["genericbtn"];
@@ -488,8 +501,8 @@ namespace GDApp
             var origin = new Vector2(btnTexture.Width / 2.0f, btnTexture.Height / 2.0f);
 
             var playBtn = new UIButtonObject(AppData.MENU_PLAY_BTN_NAME, UIObjectType.Button,
-                new Transform2D(AppData.MENU_PLAY_BTN_POSITION,
-                0.5f * Vector2.One, 0),
+                new Transform2D(Screen.Instance.ScreenCentre + new Vector2(0f, -25f),
+                1f * Vector2.One, 0),
                 0.1f,
                 Color.White,
                 SpriteEffects.None,
@@ -503,7 +516,7 @@ namespace GDApp
                 Vector2.Zero);
 
             //demo button color change
-            var comp = new UIColorMouseOverBehaviour(Color.Orange, Color.White);
+            var comp = new UIColorMouseOverBehaviour(Color.Red, Color.Blue);
             playBtn.AddComponent(comp);
 
             mainMenuUIScene.Add(playBtn);
@@ -513,7 +526,7 @@ namespace GDApp
             //same button texture so we can re-use texture, sourceRectangle and origin
 
             var controlsBtn = new UIButtonObject(AppData.MENU_CONTROLS_BTN_NAME, UIObjectType.Button,
-                new Transform2D(AppData.MENU_CONTROLS_BTN_POSITION, 0.5f * Vector2.One, 0),
+                new Transform2D(Screen.Instance.ScreenCentre + new Vector2(0f, 75f), 1f * Vector2.One, 0),
                 0.1f,
                 Color.White,
                 origin,
@@ -523,7 +536,7 @@ namespace GDApp
                 Color.Black);
 
             //demo button color change
-            controlsBtn.AddComponent(new UIColorMouseOverBehaviour(Color.Orange, Color.White));
+            controlsBtn.AddComponent(new UIColorMouseOverBehaviour(Color.Blue, Color.Red));
 
             mainMenuUIScene.Add(controlsBtn);
 
@@ -533,7 +546,7 @@ namespace GDApp
 
             //use a simple/smaller version of the UIButtonObject constructor
             var exitBtn = new UIButtonObject(AppData.MENU_EXIT_BTN_NAME, UIObjectType.Button,
-                new Transform2D(AppData.MENU_EXIT_BTN_POSITION, 0.5f * Vector2.One, 0),
+                new Transform2D(Screen.Instance.ScreenCentre + new Vector2(0f, 175f), 1f * Vector2.One, 0),
                 0.1f,
                 Color.Orange,
                 origin,
@@ -543,7 +556,7 @@ namespace GDApp
                 Color.Black);
 
             //demo button color change
-            exitBtn.AddComponent(new UIColorMouseOverBehaviour(Color.Orange, Color.White));
+            exitBtn.AddComponent(new UIColorMouseOverBehaviour(Color.Red, Color.Blue));
 
             mainMenuUIScene.Add(exitBtn);
 
