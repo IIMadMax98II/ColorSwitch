@@ -691,6 +691,18 @@
 /processorParam:TextureFormat=Color
 /build:Assets/ColorSwitch/UI/Blue_Frame.png
 
+#begin Assets/ColorSwitch/UI/controls.jpg
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Assets/ColorSwitch/UI/controls.jpg
+
 #begin Assets/ColorSwitch/UI/Red_frame.png
 /importer:TextureImporter
 /processor:TextureProcessor

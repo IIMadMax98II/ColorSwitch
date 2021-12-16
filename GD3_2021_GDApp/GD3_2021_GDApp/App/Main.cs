@@ -394,6 +394,7 @@ namespace GDApp
             textureDictionary.Add("redHUD", Content.Load<Texture2D>("Assets/ColorSwitch/UI/Red_Frame"));
             textureDictionary.Add("blueHUD", Content.Load<Texture2D>("Assets/ColorSwitch/UI/Blue_Frame"));
             textureDictionary.Add("title", Content.Load<Texture2D>("Assets/ColorSwitch/UI/Title"));
+            textureDictionary.Add("controls", Content.Load<Texture2D>("Assets/ColorSwitch/UI/controls"));
         }
 
         /// <summary>
@@ -579,9 +580,31 @@ namespace GDApp
                Color.Black);
 
             //demo button color change
-            backBtn.AddComponent(new UIColorMouseOverBehaviour(Color.Red, Color.Blue));
+            backBtn.AddComponent(new UIColorMouseOverBehaviour(Color.Blue, Color.Red));
 
             menuControlsUIScene.Add(backBtn);
+
+            menuObject = new UITextureObject("main background",
+                UIObjectType.Texture,
+                new Transform2D(Screen.Instance.ScreenCentre, scale, 0),
+                0,
+                new Color(255, 255, 255, 150),
+                texture.GetOriginAtCenter(),
+                texture);
+
+            menuControlsUIScene.Add(menuObject);
+
+            var controlstexture = textureDictionary["controls"];
+
+            menuObject = new UITextureObject("controls png",
+                UIObjectType.Texture,
+                new Transform2D(Screen.Instance.ScreenCentre + new Vector2(0f,-100f), new Vector2(0.8f,0.8f), 0),
+                0,
+                new Color(255, 255, 255, 255),
+                controlstexture.GetOriginAtCenter(),
+                controlstexture);
+
+            menuControlsUIScene.Add(menuObject);
 
             uiMenuManager.Add(menuControlsUIScene);
             /************************** Options Menu Scene **************************/
