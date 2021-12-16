@@ -566,7 +566,24 @@ namespace GDApp
             uiMenuManager.Add(mainMenuUIScene);
 
             /************************** Controls Menu Scene **************************/
+            var menuControlsUIScene = new UIScene(AppData.MENU_CONTROLS_NAME);
 
+            var backBtn = new UIButtonObject(AppData.MENU_BACK_BTN_NAME, UIObjectType.Button,
+               new Transform2D(Screen.Instance.ScreenCentre + new Vector2(0f, 200f), 1f * Vector2.One, 0),
+               0.1f,
+               Color.Orange,
+               origin,
+               btnTexture,
+               "Back",
+               fontDictionary["menu"],
+               Color.Black);
+
+            //demo button color change
+            backBtn.AddComponent(new UIColorMouseOverBehaviour(Color.Red, Color.Blue));
+
+            menuControlsUIScene.Add(backBtn);
+
+            uiMenuManager.Add(menuControlsUIScene);
             /************************** Options Menu Scene **************************/
 
             /************************** Exit Menu Scene **************************/
@@ -615,6 +632,7 @@ namespace GDApp
 
             //add the ui scene to the manager
             uiSceneManager.Add(mainGameUIScene);
+
 
             //set the active scene
             uiSceneManager.SetActiveScene(AppData.UI_SCENE_MAIN_NAME);
