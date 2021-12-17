@@ -7,10 +7,11 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using JigLibX.Collision;
+using GDApp.App.Components;
 
 namespace ColorSwitch
 {
-    class FirstScene
+    class FirstScene 
     {
         /// <summary>
         /// Add neutral platforms to level.
@@ -177,13 +178,13 @@ namespace ColorSwitch
 
             //Add Translation Curve
             translationCurve = new Curve3D(CurveLoopType.Cycle);
-            translationCurve.Add(new Vector3(4, 0, -26), 0);
-            translationCurve.Add(new Vector3(-4, 0, -26), 2000);
-            translationCurve.Add(new Vector3(4, 0, -26), 4000);
+            translationCurve.Add(new Vector3(2, 0, 0), 0 );
+            translationCurve.Add(new Vector3(-2, 0, 0), 4000);
+            
             platformObjectRMClone.AddComponent(new CurveBehaviour(translationCurve));
 
             platformObjectRMClone.AddComponent(new MeshRenderer(mesh, materialR));
-            platformObjectRMClone.Transform.SetScale(3, 0.5f, 3);
+            platformObjectRMClone.Transform.SetScale(4, 0.5f, 4);
 
             //add Collision Surface(s)
             var colliderRM = new Collider();
@@ -193,11 +194,12 @@ namespace ColorSwitch
                 platformObjectRMClone.Transform.LocalTranslation,
                 platformObjectRMClone.Transform.LocalRotation,
                 platformObjectRMClone.Transform.LocalScale),
-                new MaterialProperties(0.8f, 0.8f, 0.7f));
-            colliderRM.Enable(true, 1);
+                new MaterialProperties(0f, 0f, 0f));
+            colliderRM.Enable(false, 1);
 
             //Adds the switch method
             platformObjectRMClone.AddComponent(new SwitchPlatform(true));
+            platformObjectRMClone.AddComponent(new FightGravity());
 
             level.Add(platformObjectRMClone);
 
@@ -208,13 +210,13 @@ namespace ColorSwitch
 
             //Add Translation Curve
             translationCurve = new Curve3D(CurveLoopType.Cycle);
-            translationCurve.Add(new Vector3(-4, 0, -32), 0);
-            translationCurve.Add(new Vector3(4, 0, -32), 2000);
-            translationCurve.Add(new Vector3(-4, 0, -32), 4000);
-            
+            translationCurve.Add(new Vector3(2, 0, 0), 0);
+            translationCurve.Add(new Vector3(-2, 0, 0), 20000);
+            translationCurve.Add(new Vector3(2, 0, 0), 30000);
+
             platformObjectBMClone.AddComponent(new CurveBehaviour(translationCurve));
             platformObjectBMClone.AddComponent(new MeshRenderer(mesh, materialB));
-            platformObjectBMClone.Transform.SetScale(3, 0.5f, 3);
+            platformObjectBMClone.Transform.SetScale(4, 0.5f, 4);
 
             //add Collision Surface(s)
             var colliderBM = new Collider();
@@ -225,10 +227,11 @@ namespace ColorSwitch
                 platformObjectBMClone.Transform.LocalRotation,
                 platformObjectBMClone.Transform.LocalScale),
                 new MaterialProperties(0.8f, 0.8f, 0.7f));
-            colliderBM.Enable(true, 1);
+            colliderBM.Enable(false, 1);
 
             //Adds the switch method
             platformObjectBMClone.AddComponent(new SwitchPlatform(false));
+            platformObjectBMClone.AddComponent(new FightGravity());
 
             level.Add(platformObjectBMClone);
         }
