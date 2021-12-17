@@ -513,7 +513,7 @@ namespace GDApp
                 sourceRectangle,
                 "Play",
                 fontDictionary["menu"],
-                Color.Black,
+                Color.Gold,
                 Vector2.Zero);
 
             //demo button color change
@@ -534,7 +534,7 @@ namespace GDApp
                 btnTexture,
                 "Controls",
                 fontDictionary["menu"],
-                Color.Black);
+                Color.Gold);
 
             //demo button color change
             controlsBtn.AddComponent(new UIColorMouseOverBehaviour(Color.Blue, Color.Red));
@@ -554,7 +554,7 @@ namespace GDApp
                 btnTexture,
                 "Exit",
                 fontDictionary["menu"],
-                Color.Black);
+                Color.Gold);
 
             //demo button color change
             exitBtn.AddComponent(new UIColorMouseOverBehaviour(Color.Red, Color.Blue));
@@ -577,7 +577,7 @@ namespace GDApp
                btnTexture,
                "Back",
                fontDictionary["menu"],
-               Color.Black);
+               Color.Gold);
 
             //demo button color change
             backBtn.AddComponent(new UIColorMouseOverBehaviour(Color.Blue, Color.Red));
