@@ -76,7 +76,8 @@
         Picking,
         Inventory,
         Video,
-        MaterialChange
+        MaterialChange,
+        LooseMenu
 
         //add more here...
     }

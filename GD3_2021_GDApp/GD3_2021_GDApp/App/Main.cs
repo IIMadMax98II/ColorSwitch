@@ -220,12 +220,15 @@ namespace GDApp
             
             //This is supposed to respawn the player to the initial position when it goes off map
             
-            if (Camera.Main.Transform.LocalTranslation.Y <= -10)
+            if (Camera.Main.Transform.LocalTranslation.Y <= -100)
             {
                 //It should only move player back up but it doesnt work
-                //camera.Transform.SetTranslation(0, 2, 10);
+                //camera.Transform.SetTranslation(0, 10, -40);
 
                 sceneManager.LoadScene("level 1"); // This should reload the level but it aint working either
+                
+                //In case i want to rise a loosing screen
+                //EventDispatcher.Raise(new EventData(EventCategoryType.LooseMenu, EventActionType.OnLose));
             }
 
             base.Update(gameTime);
@@ -619,7 +622,25 @@ namespace GDApp
             menuControlsUIScene.Add(menuObject);
 
             uiMenuManager.Add(menuControlsUIScene);
-            /************************** Options Menu Scene **************************/
+
+            /************************** Loose Menu Scene **************************/
+
+            var menuLooseUIScene = new UIScene("Loose Menu");
+
+            menuLooseUIScene.Add(backBtn);
+
+            menuObject = new UITextureObject("main background",
+                UIObjectType.Texture,
+                new Transform2D(Screen.Instance.ScreenCentre, scale, 0),
+                0,
+                new Color(255, 255, 255, 150),
+                texture.GetOriginAtCenter(),
+                texture);
+
+            menuLooseUIScene.Add(menuObject);
+
+           // var textUI = new UIObject()
+
 
             /************************** Exit Menu Scene **************************/
 
@@ -658,12 +679,6 @@ namespace GDApp
 
             //add ui object to scene
             mainGameUIScene.Add(menuObject);
-
-           // Camera mainCamera = level.GetAllActiveSceneCameras()[0];
-
-            //Initialize UI
-            //mainCamera.GetComponent<SwitchBehavior>().Initialize(textureDictionary, _graphics, mainGameUIScene);
-            //mainCamera.GetComponent<SwitchBehavior>().Switch();
 
             //add the ui scene to the manager
             uiSceneManager.Add(mainGameUIScene);
@@ -790,7 +805,8 @@ namespace GDApp
             camera.AddComponent(new FirstPersonController(0.05f, 0.025f, new Vector2(0.006f, 0.004f)));
 
             //set initial position
-            camera.Transform.SetTranslation(0, 2, 10);
+            //camera.Transform.SetTranslation(0, 2, 10);
+            camera.Transform.SetTranslation(0, 5, -40);
 
             //add to level
             level.Add(camera);
@@ -803,7 +819,8 @@ namespace GDApp
             camera = new GameObject(AppData.CAMERA_FIRSTPERSON_COLLIDABLE_NAME, GameObjectType.Camera);
 
             //set initial position - important to set before the collider as collider capsule feeds off this position
-            camera.Transform.SetTranslation(0, 10, 5);
+            camera.Transform.SetTranslation(0, 2, 5);
+
 
             //add components
             camera.AddComponent(new Camera(_graphics.GraphicsDevice.Viewport));

@@ -32,7 +32,7 @@ namespace ColorSwitch
             #endregion Archetype
 
             //Main Platform
-            for (int i = 0; i < 2; i++)
+            for (int i = 0; i <= 8; i++)
             {
                 var clone = platform.Clone() as GameObject;
                 clone.Name = $"{clone.Name} - {1}";
@@ -46,6 +46,34 @@ namespace ColorSwitch
                     case 1:
                         clone.Transform.SetTranslation(0, -2, -20);
                         clone.Transform.SetScale(10, 5, 2.5f);
+                        break;
+                    case 2:
+                        clone.Transform.SetTranslation(0, 0, -40);
+                        clone.Transform.SetScale(12, 12, 8);
+                        break;
+                    case 3:
+                        clone.Transform.SetTranslation(0, -12, -75);
+                        clone.Transform.SetScale(5, 5, 5);
+                        break;
+                    case 4:
+                        clone.Transform.SetTranslation(0, -15, -120);
+                        clone.Transform.SetScale(12, 12, 8);
+                        break;
+                    case 5:
+                        clone.Transform.SetTranslation(0, -12, -200);
+                        clone.Transform.SetScale(8, 6, 10);
+                        break;
+                    case 6:
+                        clone.Transform.SetTranslation(0, -5, -208);
+                        clone.Transform.SetScale(16, 16, 8);
+                        break;
+                    case 7:
+                        clone.Transform.SetTranslation(6, -10, -200);
+                        clone.Transform.SetScale(5, 10, 10);
+                        break;
+                    case 8:
+                        clone.Transform.SetTranslation(-6, -10, -200);
+                        clone.Transform.SetScale(5,10, 10);
                         break;
                 }
                 clone.AddComponent(new MeshRenderer(mesh, material));
@@ -94,20 +122,74 @@ namespace ColorSwitch
             platformObjectBS.Transform.SetScale(3, 0.5f, 3);
 
             //Create Platform clone Red
-            for(int i = 0; i < 3; i++)
+            for(int i = 0; i <= 14; i++)
             {
                 var platformObjectRSClone = platformObjectRS.Clone() as GameObject;
 
                 switch (i) {
-                    case 0: platformObjectRSClone.Transform.SetTranslation(3, 0, -2);
+                    case 0: 
+                        platformObjectRSClone.Transform.SetTranslation(3, 0, -2);
+                        platformObjectRSClone.Transform.SetScale(3, 0.5f, 3);
                         break;
-                    case 1: platformObjectRSClone.Transform.SetTranslation(-3, 0, -8);
+                    case 1: 
+                        platformObjectRSClone.Transform.SetTranslation(-3, 0, -8);
+                        platformObjectRSClone.Transform.SetScale(3, 0.5f, 3);
                         break;
-                    case 2: platformObjectRSClone.Transform.SetTranslation(3, 0, -14);
+                    case 2: 
+                        platformObjectRSClone.Transform.SetTranslation(3, 0, -14);
+                        platformObjectRSClone.Transform.SetScale(3, 0.5f, 3);
+                        break;
+                    case 3:
+                        platformObjectRSClone.Transform.SetTranslation(0, 1.5f, -24);
+                        platformObjectRSClone.Transform.SetScale(12, 1, 3);
+                        break;
+                    case 4:
+                        platformObjectRSClone.Transform.SetTranslation(0, 4.5f, -32);
+                        platformObjectRSClone.Transform.SetScale(12, 1, 3);
+                        break;
+                    case 5:
+                        platformObjectRSClone.Transform.SetTranslation(8, -10, -65);
+                        platformObjectRSClone.Transform.SetScale(5, 0.5f, 5);
+                        break;
+                    case 6:
+                        platformObjectRSClone.Transform.SetTranslation(8, -10, -85);
+                        platformObjectRSClone.Transform.SetScale(5, 0.5f, 5);
+                        break;
+                    case 7:
+                        platformObjectRSClone.Transform.SetTranslation(2, -10, -100);
+                        platformObjectRSClone.Transform.SetScale(2, 0.5f, 20);
+                        break;
+                    case 8:
+                        platformObjectRSClone.Transform.SetTranslation(4, -10, -130);
+                        platformObjectRSClone.Transform.SetScale(2, 0.5f, 2);
+                        break;
+                    case 9:
+                        platformObjectRSClone.Transform.SetTranslation(4, -10, -140);
+                        platformObjectRSClone.Transform.SetScale(2, 0.5f, 2);
+                        break;
+                    case 10:
+                        platformObjectRSClone.Transform.SetTranslation(4, -10, -150);
+                        platformObjectRSClone.Transform.SetScale(2, 0.5f, 2);
+                        break;
+                    case 11:
+                        platformObjectRSClone.Transform.SetTranslation(-4, -10, -160);
+                        platformObjectRSClone.Transform.SetScale(2, 0.5f, 2);
+                        break;
+                    case 12:
+                        platformObjectRSClone.Transform.SetTranslation(-4, -10, -170);
+                        platformObjectRSClone.Transform.SetScale(2, 0.5f, 2);
+                        break;
+                    case 13:
+                        platformObjectRSClone.Transform.SetTranslation(-4, -10, -180);
+                        platformObjectRSClone.Transform.SetScale(2, 0.5f, 2);
+                        break;
+                    case 14:
+                        platformObjectRSClone.Transform.SetTranslation(-4, -10, -190);
+                        platformObjectRSClone.Transform.SetScale(2, 0.5f, 2);
                         break;
                 }
 
-                platformObjectRSClone.Transform.SetScale(3, 0.5f, 3);
+                
 
                 platformObjectRSClone.AddComponent(new MeshRenderer(mesh, materialR));
 
@@ -130,7 +212,7 @@ namespace ColorSwitch
             }
 
             //Create Platform clone Blue
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i <= 13 ; i++)
             {
                 var platformObjectBSClone = platformObjectBS.Clone() as GameObject;
 
@@ -138,17 +220,63 @@ namespace ColorSwitch
                 {
                     case 0:
                         platformObjectBSClone.Transform.SetTranslation(-3, 0, -2);
+                        platformObjectBSClone.Transform.SetScale(3, 0.5f, 3);
                         break;
                     case 1:
                         platformObjectBSClone.Transform.SetTranslation(3, 0, -8);
+                        platformObjectBSClone.Transform.SetScale(3, 0.5f, 3);
                         break;
                     case 2:
                         platformObjectBSClone.Transform.SetTranslation(-3, 0, -14);
+                        platformObjectBSClone.Transform.SetScale(3, 0.5f, 3);
+                        break;
+                    case 3:
+                        platformObjectBSClone.Transform.SetTranslation(0, 3, -28);
+                        platformObjectBSClone.Transform.SetScale(12, 1, 3);
+                        break;
+                    case 4:
+                        platformObjectBSClone.Transform.SetTranslation(-8, -10, -65);
+                        platformObjectBSClone.Transform.SetScale(5, 0.5f, 5);
+                        break;
+                    case 5:
+                        platformObjectBSClone.Transform.SetTranslation(-8, -10, -85);
+                        platformObjectBSClone.Transform.SetScale(5, 0.5f, 5);
+                        break;
+                    case 6:
+                        platformObjectBSClone.Transform.SetTranslation(-2, -10, -100);
+                        platformObjectBSClone.Transform.SetScale(2, 0.5f, 20);
+                        break;
+                    case 7:
+                        platformObjectBSClone.Transform.SetTranslation(-4, -10, -130);
+                        platformObjectBSClone.Transform.SetScale(2, 0.5f, 2);
+                        break;
+                    case 8:
+                        platformObjectBSClone.Transform.SetTranslation(-4, -10, -140);
+                        platformObjectBSClone.Transform.SetScale(2, 0.5f, 2);
+                        break;
+                    case 9:
+                        platformObjectBSClone.Transform.SetTranslation(-4, -10, -150);
+                        platformObjectBSClone.Transform.SetScale(2, 0.5f, 2);
+                        break;
+                    case 10:
+                        platformObjectBSClone.Transform.SetTranslation(4, -10, -160);
+                        platformObjectBSClone.Transform.SetScale(2, 0.5f, 2);
+                        break;
+                    case 11:
+                        platformObjectBSClone.Transform.SetTranslation(4, -10, -170);
+                        platformObjectBSClone.Transform.SetScale(2, 0.5f, 2);
+                        break;
+                    case 12:
+                        platformObjectBSClone.Transform.SetTranslation(4, -10, -180);
+                        platformObjectBSClone.Transform.SetScale(2, 0.5f, 2);
+                        break;
+                    case 13:
+                        platformObjectBSClone.Transform.SetTranslation(4, -10, -190);
+                        platformObjectBSClone.Transform.SetScale(2, 0.5f, 2);
                         break;
                 }
 
                 platformObjectBSClone.AddComponent(new MeshRenderer(mesh, materialB));
-                platformObjectBSClone.Transform.SetScale(3, 0.5f, 3);
 
                 //add Collision Surface(s)
                 var collider = new Collider();
