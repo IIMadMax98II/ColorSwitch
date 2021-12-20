@@ -168,6 +168,9 @@ namespace ColorSwitch
                 level.Add(platformObjectBSClone);
             }
 
+            //Physic system broken and its too late to make this ones into the game
+            #region MovingPlatforms
+            /*
             //Moving Platform
             Curve3D translationCurve;
 
@@ -178,9 +181,9 @@ namespace ColorSwitch
 
             //Add Translation Curve
             translationCurve = new Curve3D(CurveLoopType.Cycle);
-            translationCurve.Add(new Vector3(2, 0, 0), 0 );
+            translationCurve.Add(new Vector3(2, 0, 0), 0);
             translationCurve.Add(new Vector3(-2, 0, 0), 4000);
-            
+
             platformObjectRMClone.AddComponent(new CurveBehaviour(translationCurve));
 
             platformObjectRMClone.AddComponent(new MeshRenderer(mesh, materialR));
@@ -233,7 +236,10 @@ namespace ColorSwitch
             platformObjectBMClone.AddComponent(new SwitchPlatform(false));
             platformObjectBMClone.AddComponent(new FightGravity());
 
-            level.Add(platformObjectBMClone);
+            level.Add(platformObjectBMClone); 
+             */
+            #endregion
+
         }
 
     }

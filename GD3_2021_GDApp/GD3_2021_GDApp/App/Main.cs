@@ -92,8 +92,9 @@ namespace GDApp
         //temps
         private Scene activeScene;
 
-        private UITextObject nameTextObj;
         private Collider collider;
+        private Vector3 cameraPos;
+        private GameObject camera;
 
         #endregion Fields
 
@@ -215,7 +216,18 @@ namespace GDApp
         /// </summary>
         /// <param name="gameTime"></param>
         protected override void Update(GameTime gameTime)
-        { 
+        {
+            
+            //This is supposed to respawn the player to the initial position when it goes off map
+            
+            if (Camera.Main.Transform.LocalTranslation.Y <= -10)
+            {
+                //It should only move player back up but it doesnt work
+                //camera.Transform.SetTranslation(0, 2, 10);
+
+                sceneManager.LoadScene("level 1"); // This should reload the level but it aint working either
+            }
+
             base.Update(gameTime);
         }
 
@@ -429,11 +441,11 @@ namespace GDApp
             //Colorshift Level
 
             // ColorSwitch Make walls + Neutral Platforms
-            FirstScene game = new FirstScene();
-            game.InitializeNeutralPlatforms(activeScene, Content);
+            FirstScene firstScene = new FirstScene();
+            firstScene.InitializeNeutralPlatforms(activeScene, Content);
 
             //Load platforms
-            game.InitializePlatforms(activeScene, Content);
+            firstScene.InitializePlatforms(activeScene, Content);
 
             sceneManager.Add(activeScene);
             sceneManager.LoadScene("level 1");
@@ -767,7 +779,7 @@ namespace GDApp
             #region First Person Camera - Non Collidable
 
             //add camera game object
-            var camera = new GameObject(AppData.CAMERA_FIRSTPERSON_NONCOLLIDABLE_NAME, GameObjectType.Camera);
+            camera = new GameObject(AppData.CAMERA_FIRSTPERSON_NONCOLLIDABLE_NAME, GameObjectType.Camera);
 
             //add components
             //here is where we can set a smaller viewport e.g. for split screen
@@ -784,30 +796,6 @@ namespace GDApp
             level.Add(camera);
 
             #endregion First Person Camera - Non Collidable
-
-            #region Curve Camera - Non Collidable
-
-            //add curve for camera translation
-            var translationCurve = new Curve3D(CurveLoopType.Cycle);
-            translationCurve.Add(new Vector3(0, 2, 10), 0);
-            translationCurve.Add(new Vector3(0, 8, 15), 1000);
-            translationCurve.Add(new Vector3(0, 8, 20), 2000);
-            translationCurve.Add(new Vector3(0, 6, 25), 3000);
-            translationCurve.Add(new Vector3(0, 4, 25), 4000);
-            translationCurve.Add(new Vector3(0, 2, 10), 6000);
-
-            //add camera game object
-            var curveCamera = new GameObject(AppData.CAMERA_CURVE_NONCOLLIDABLE_NAME, GameObjectType.Camera);
-
-            //add components
-            curveCamera.AddComponent(new Camera(_graphics.GraphicsDevice.Viewport));
-            curveCamera.AddComponent(new CurveBehaviour(translationCurve));
-            curveCamera.AddComponent(new FOVOnScrollController(MathHelper.ToRadians(2)));
-
-            //add to level
-            level.Add(curveCamera);
-
-            #endregion Curve Camera - Non Collidable
 
             #region First Person Camera - Collidable
 
@@ -850,41 +838,6 @@ namespace GDApp
         /// <summary>
         /// Demo of the new physics manager and collidable objects
         /// </summary>
-        private void InitializeCollidables(Scene level, float worldScale = 500)
-        {
-            //InitializeCollidableGround(level, worldScale);
-            //InitializeCollidableCubes(level);
-            //InitializeCollidableModels(level);
-            //InitializeCollidableTriangleMeshes(level);
-        }
-
-        private void InitializeCollidableTriangleMeshes(Scene level)
-        {
-            ////re-use the code on the gfx card, if we want to draw multiple objects using Clone
-            //var shader = new BasicShader(Application.Content, false, true);
-
-            ////create the teapot
-            //var complexModel = new GameObject("teapot", GameObjectType.Environment, true);
-            //complexModel.Transform.SetTranslation(0, 5, 0);
-            ////        complexModel.Transform.SetScale(0.4f, 0.4f, 0.4f);
-            //complexModel.AddComponent(new ModelRenderer(
-            //    modelDictionary["monkey1"],
-            //    new BasicMaterial("teapot_material", shader,
-            //    Color.White, 1, textureDictionary["mona lisa"])));
-
-            ////add Collision Surface(s)
-            //collider = new Collider();
-            //complexModel.AddComponent(collider);
-            //collider.AddPrimitive(
-            //    CollisionUtility.GetTriangleMesh(modelDictionary["monkey1"],
-            //    new Vector3(0, 5, 0), new Vector3(90, 0, 0), new Vector3(0.5f, 0.5f, 0.5f)),
-            //    new MaterialProperties(0.8f, 0.8f, 0.7f));
-            //collider.Enable(true, 1);
-
-            ////add To Scene Manager
-            //level.Add(complexModel);
-        }
-
         private void InitializeCollidableModels(Scene level)
         {
             #region Reusable - You can copy and re-use this code elsewhere, if required
