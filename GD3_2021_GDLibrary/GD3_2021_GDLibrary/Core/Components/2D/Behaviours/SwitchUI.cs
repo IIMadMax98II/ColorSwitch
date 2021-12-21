@@ -37,7 +37,6 @@ namespace GDLibrary.Components.UI
                 }
                 else
                 {
-         
                     uiObject.Color = Color.Red;
                     uiTextureObject.DefaultTexture = uiTextureObject.AlternateTexture;
                     activeTexture = true;

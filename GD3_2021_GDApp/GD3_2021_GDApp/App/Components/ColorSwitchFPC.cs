@@ -29,6 +29,10 @@ namespace GDApp
 
         private float jumpHeight;
 
+        private bool isRed;
+        private bool isTransition;
+        private float volume;
+
         #endregion Fields
 
         #region Contructors
@@ -52,12 +56,31 @@ namespace GDApp
             characterCollider = gameObject.GetComponent<Collider>() as CharacterCollider;
             //get the body so that we can change its position when keys
             characterBody = characterCollider.Body as Character;
+
+            //Background Music
+            object[] parameter1 = { "music" };
+            EventDispatcher.Raise(new EventData(EventCategoryType.Sound,
+                EventActionType.OnPlay2D, parameter1));
+            object[] parameter2 = { "musicReverse" };
+            EventDispatcher.Raise(new EventData(EventCategoryType.Sound,
+                EventActionType.OnPlay2D, parameter2));
+            object[] parametersVolume = { "musicReverse", 0 };
+            EventDispatcher.Raise(new EventData(EventCategoryType.Sound,
+                EventActionType.OnVolumeSet, parametersVolume));
+
+            EventDispatcher.Subscribe(EventCategoryType.MaterialChange, HandleEvent);
+            isRed = false;
+            isTransition = true;
+            volume = 0;
+
             base.Awake(gameObject);
         }
 
         public override void Update()
         {
             HandleInputs();
+            HandleSounds();
+
         }
 
         protected override void HandleInputs()
@@ -136,5 +159,78 @@ namespace GDApp
         }
 
         #endregion Unused
+
+        protected void HandleSounds()
+        {
+            //Smooth Transition
+            //DOES NOT WORK BECAUSE THE OnVolumeSet CAN ONLY TAKE INT
+
+            //if(isTransition == false)
+            //{
+            //    volume += 0.01f;
+            //    float decrease = 1 - volume;
+            //    if (!isRed)
+            //    {
+            //        object[] parameters = { "music", volume };
+            //        EventDispatcher.Raise(new EventData(EventCategoryType.Sound,
+            //            EventActionType.OnVolumeSet, parameters));
+            //        object[] parametersVolume = { "musicReverse", decrease };
+            //        EventDispatcher.Raise(new EventData(EventCategoryType.Sound,
+            //            EventActionType.OnVolumeSet, parametersVolume));
+            //    }
+            //    else
+            //    {
+            //        object[] parameters = { "music", decrease };
+            //        EventDispatcher.Raise(new EventData(EventCategoryType.Sound,
+            //            EventActionType.OnVolumeSet, parameters));
+            //        object[] parametersVolume = { "musicReverse", volume };
+            //        EventDispatcher.Raise(new EventData(EventCategoryType.Sound,
+            //            EventActionType.OnVolumeSet, parametersVolume));
+
+            //    }
+
+            //    if(volume > 1)
+            //    {
+            //        isTransition = true;
+            //        volume = 0;
+            //    }
+            //}
+
+            //No Transition, sounds bad
+            if (isTransition == false)
+            {
+                if (!isRed)
+                {
+                    object[] parameters = { "music", 1 };
+                    EventDispatcher.Raise(new EventData(EventCategoryType.Sound,
+                        EventActionType.OnVolumeSet, parameters));
+                    object[] parametersVolume = { "musicReverse", 0 };
+                    EventDispatcher.Raise(new EventData(EventCategoryType.Sound,
+                        EventActionType.OnVolumeSet, parametersVolume));
+                }
+                else
+                {
+                    object[] parameters = { "music", 0 };
+                    EventDispatcher.Raise(new EventData(EventCategoryType.Sound,
+                        EventActionType.OnVolumeSet, parameters));
+                    object[] parametersVolume = { "musicReverse", 1 };
+                    EventDispatcher.Raise(new EventData(EventCategoryType.Sound,
+                        EventActionType.OnVolumeSet, parametersVolume));
+
+                }
+
+                isTransition = true;
+            }
+        }
+
+        private void HandleEvent(EventData eventData)
+        {
+            if (isRed)
+                isRed = false;
+            else
+                isRed = true;
+
+            isTransition = false;
+        }
     }
 }

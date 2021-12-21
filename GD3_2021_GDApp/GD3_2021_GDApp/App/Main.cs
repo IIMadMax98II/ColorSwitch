@@ -356,6 +356,28 @@ namespace GDApp
                 SoundCategoryType.Alarm,
                 new Vector3(1, 0, 0),
                 false));
+
+            var colorMusic =
+                Content.Load<SoundEffect>("Assets/Sounds/ColorMusic/Color Music");
+
+            //add the new sound effect
+            soundManager.Add(new GDLibrary.Managers.Cue(
+                "music",
+                colorMusic,
+                SoundCategoryType.BackgroundMusic,
+                new Vector3(1, 0, 0),
+                true));
+
+            var colorMusicReverse =
+               Content.Load<SoundEffect>("Assets/Sounds/ColorMusic/Inverted Color Music");
+
+            //add the new sound effect
+            soundManager.Add(new GDLibrary.Managers.Cue(
+                "musicReverse",
+                colorMusicReverse,
+                SoundCategoryType.BackgroundMusic,
+                new Vector3(1, 0, 0),
+                true));
         }
 
         /// <summary>

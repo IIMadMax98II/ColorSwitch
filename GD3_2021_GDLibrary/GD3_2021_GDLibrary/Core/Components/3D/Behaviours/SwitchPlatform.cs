@@ -36,9 +36,11 @@ namespace GDLibrary.Components
             }
 
             EventDispatcher.Subscribe(EventCategoryType.MaterialChange, HandleEvent);
-            base.Awake(gameObject);
+            
 
             Switch();
+
+            base.Awake(gameObject);
         }
 
         public void Switch()

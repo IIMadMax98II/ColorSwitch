@@ -299,7 +299,6 @@ namespace ColorSwitch
 
             //Add Out Of Bound
             var boundBox = new GameObject("Out Of Bound Box", GameObjectType.OOB, false);
-            boundBox.AddComponent(new MeshRenderer(mesh, materialR));
             boundBox.Transform.SetTranslation(0, -200, 0);
             boundBox.Transform.SetScale(2000, 5, 2000);
 

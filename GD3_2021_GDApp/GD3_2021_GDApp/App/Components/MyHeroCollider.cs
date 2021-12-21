@@ -1,7 +1,6 @@
 ﻿using GDLibrary;
 using GDLibrary.Components;
 using GDLibrary.Core;
-using Microsoft.Xna.Framework;
 
 namespace GDApp
 {
@@ -45,8 +44,8 @@ namespace GDApp
                         //this.body.MoveTo(new Vector3(0, 2, 5), Matrix.Identity);
                         // this.transform.SetTranslation(0, 2, 5);
                         //(component as ColorSwitchFPC).characterBody.MoveTo(new Vector3(0, 2, 5), Matrix.Identity);
-                         
-                       
+
+
                         //(component as ColorSwitchFPC).characterBody.CollisionSkin.ApplyLocalTransform(new JigLibX.Math.Transform(-SetMass(2), Matrix.Identity));
                         //(component as ColorSwitchFPC).characterBody.EnableBody();
                     }
