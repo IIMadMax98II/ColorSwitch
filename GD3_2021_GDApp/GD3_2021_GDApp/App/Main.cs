@@ -218,18 +218,18 @@ namespace GDApp
         protected override void Update(GameTime gameTime)
         {
             
-            //This is supposed to respawn the player to the initial position when it goes off map
+            ////This is supposed to respawn the player to the initial position when it goes off map
             
-            if (Camera.Main.Transform.LocalTranslation.Y <= -100)
-            {
-                //It should only move player back up but it doesnt work
-                //camera.Transform.SetTranslation(0, 10, -40);
+            //if (Camera.Main.Transform.LocalTranslation.Y <= -100)
+            //{
+            //    //It should only move player back up but it doesnt work
+            //    //camera.Transform.SetTranslation(0, 10, -40);
 
-                sceneManager.LoadScene("level 1"); // This should reload the level but it aint working either
+            //    sceneManager.LoadScene("level 1"); // This should reload the level but it aint working either
                 
-                //In case i want to rise a loosing screen
-                //EventDispatcher.Raise(new EventData(EventCategoryType.LooseMenu, EventActionType.OnLose));
-            }
+            //    //In case i want to rise a loosing screen
+            //    //EventDispatcher.Raise(new EventData(EventCategoryType.LooseMenu, EventActionType.OnLose));
+            //}
 
             base.Update(gameTime);
         }
@@ -826,7 +826,7 @@ namespace GDApp
             camera.AddComponent(new Camera(_graphics.GraphicsDevice.Viewport));
 
             //adding a collidable surface that enables acceleration, jumping
-            var collider = new CharacterCollider(2, 2, true, false);
+            var collider = new MyHeroCollider(2, 2, true, false);
 
             camera.AddComponent(collider);
             collider.AddPrimitive(new Capsule(camera.Transform.LocalTranslation,

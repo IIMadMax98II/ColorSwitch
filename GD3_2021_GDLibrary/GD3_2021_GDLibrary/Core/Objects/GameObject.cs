@@ -17,8 +17,9 @@ namespace GDLibrary
         Skybox,
         Editor,
         Prop,
-        Ground
+        Ground,
         //STU - add more for your game here...
+        OOB
     }
 
     //TODO - Add IComparable?

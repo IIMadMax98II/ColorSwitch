@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using JigLibX.Collision;
 using GDApp.App.Components;
+using GDLibrary.Core;
 
 namespace ColorSwitch
 {
@@ -295,6 +296,24 @@ namespace ColorSwitch
    
                 level.Add(platformObjectBSClone);
             }
+
+            //Add Out Of Bound
+            var boundBox = new GameObject("Out Of Bound Box", GameObjectType.OOB, false);
+            boundBox.AddComponent(new MeshRenderer(mesh, materialR));
+            boundBox.Transform.SetTranslation(0, -200, 0);
+            boundBox.Transform.SetScale(2000, 5, 2000);
+
+            //add Collision Surface(s)
+            var colliderB = new Collider(false, true);
+
+            boundBox.AddComponent(colliderB);
+            colliderB.AddPrimitive(new JigLibX.Geometry.Box(
+                boundBox.Transform.LocalTranslation,
+                boundBox.Transform.LocalRotation,
+                boundBox.Transform.LocalScale),
+                new MaterialProperties(0.8f, 0.8f, 0.7f));
+            colliderB.Enable(true, 1);
+            level.Add(boundBox);
 
             //Physic system broken and its too late to make this ones into the game
             #region MovingPlatforms
