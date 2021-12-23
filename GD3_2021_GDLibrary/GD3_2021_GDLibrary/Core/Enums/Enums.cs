@@ -77,7 +77,8 @@
         Inventory,
         Video,
         MaterialChange,
-        LooseMenu
+        LoseMenu,
+        WinMenu
 
         //add more here...
     }

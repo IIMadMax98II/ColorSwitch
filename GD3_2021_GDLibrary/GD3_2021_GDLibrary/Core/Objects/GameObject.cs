@@ -19,7 +19,8 @@ namespace GDLibrary
         Prop,
         Ground,
         //STU - add more for your game here...
-        OOB
+        OOB,
+        Win
     }
 
     //TODO - Add IComparable?

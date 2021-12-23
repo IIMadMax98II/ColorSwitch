@@ -49,7 +49,7 @@ namespace GDApp
         /// <summary>
         /// Updates and Draws all menu objects
         /// </summary>
-        private MyMenuManager uiMenuManager;
+        public MyMenuManager uiMenuManager;
 
         /// <summary>
         /// Plays all 2D and 3D sounds
@@ -645,11 +645,11 @@ namespace GDApp
 
             uiMenuManager.Add(menuControlsUIScene);
 
-            /************************** Loose Menu Scene **************************/
+            /************************** Lose Menu Scene **************************/
 
-            var menuLooseUIScene = new UIScene("Loose Menu");
+            var menuLoseUIScene = new UIScene(AppData.MENU_LOSE_GAME);
 
-            menuLooseUIScene.Add(backBtn);
+            menuLoseUIScene.Add(exitBtn);
 
             menuObject = new UITextureObject("main background",
                 UIObjectType.Texture,
@@ -659,9 +659,47 @@ namespace GDApp
                 texture.GetOriginAtCenter(),
                 texture);
 
-            menuLooseUIScene.Add(menuObject);
+            menuLoseUIScene.Add(menuObject);
 
-           // var textUI = new UIObject()
+            //create the UI element
+            var nameTextObj = new UITextObject("Lose Text",
+                UIObjectType.Text,
+                new Transform2D(Screen.Instance.ScreenCentre, Vector2.One*2, 0),
+                0,
+                fontDictionary["menu"],
+                "You Lose!");
+
+            menuLoseUIScene.Add(nameTextObj);
+
+            uiMenuManager.Add(menuLoseUIScene);
+
+            /************************** Win Menu Scene **************************/
+
+            var menuWinUIScreen = new UIScene(AppData.MENU_WIN_GAME);
+
+            menuWinUIScreen.Add(exitBtn);
+
+            menuObject = new UITextureObject("main background",
+                UIObjectType.Texture,
+                new Transform2D(Screen.Instance.ScreenCentre, scale, 0),
+                0,
+                new Color(255, 255, 255, 150),
+                texture.GetOriginAtCenter(),
+                texture);
+
+            menuWinUIScreen.Add(menuObject);
+
+            //create the UI element
+            nameTextObj = new UITextObject("Win Text",
+                UIObjectType.Text,
+                new Transform2D(Screen.Instance.ScreenCentre, Vector2.One*2, 0),
+                0,
+                fontDictionary["menu"],
+                "You Win!");
+
+            menuWinUIScreen.Add(nameTextObj);
+
+            uiMenuManager.Add(menuWinUIScreen);
 
 
             /************************** Exit Menu Scene **************************/

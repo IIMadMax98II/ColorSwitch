@@ -1,6 +1,8 @@
 ﻿using GDLibrary;
 using GDLibrary.Components;
 using GDLibrary.Core;
+using GDLibrary.Managers;
+using GDApp;
 
 namespace GDApp
 {
@@ -48,6 +50,9 @@ namespace GDApp
 
                         //(component as ColorSwitchFPC).characterBody.CollisionSkin.ApplyLocalTransform(new JigLibX.Math.Transform(-SetMass(2), Matrix.Identity));
                         //(component as ColorSwitchFPC).characterBody.EnableBody();
+
+                        
+                        
                     }
                         
                 }
@@ -56,7 +61,18 @@ namespace GDApp
                 //this.body.CollisionSkin.ApplyLocalTransform(new JigLibX.Math.Transform(-SetMass(2), Matrix.Identity));
                 //this.body.EnableBody();
 
+                //Because we can't move the player, give a lose screen and close off game
+                EventDispatcher.Raise(new EventData(EventCategoryType.LoseMenu, EventActionType.OnLose));
+
             }
+
+            else if (parentGameObject.GameObjectType == GameObjectType.Win)
+            {
+               
+                EventDispatcher.Raise(new EventData(EventCategoryType.WinMenu, EventActionType.OnWin));
+
+            }
+
 
             base.HandleResponse(parentGameObject);
         }

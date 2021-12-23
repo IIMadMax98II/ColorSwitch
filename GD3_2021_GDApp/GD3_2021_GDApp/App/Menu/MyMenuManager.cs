@@ -13,6 +13,13 @@ namespace GDApp
         {
         }
 
+        public override void Initialize()
+        {
+            EventDispatcher.Subscribe(EventCategoryType.LoseMenu, HandleLose);
+            EventDispatcher.Subscribe(EventCategoryType.WinMenu, HandleWin);
+            base.Initialize();
+        }
+
         protected override void HandleMouseClicked(UIButtonObject btnObject)
         {
             switch (btnObject.Name)
@@ -43,6 +50,18 @@ namespace GDApp
             //    EventActionType.OnVolumeDelta, parameters));
 
             // throw new System.NotImplementedException();
+        }
+
+        private void HandleLose(EventData eventData)
+        {
+            EventDispatcher.Raise(new EventData(EventCategoryType.Menu, EventActionType.OnPause));
+            SetActiveScene(AppData.MENU_LOSE_GAME);
+        }
+
+        private void HandleWin(EventData eventData)
+        {
+            EventDispatcher.Raise(new EventData(EventCategoryType.Menu, EventActionType.OnPause));
+            SetActiveScene(AppData.MENU_WIN_GAME);
         }
     }
 }

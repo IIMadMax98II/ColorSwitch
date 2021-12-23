@@ -314,6 +314,23 @@ namespace ColorSwitch
             colliderB.Enable(true, 1);
             level.Add(boundBox);
 
+            //Add Win Box
+            var winBox = new GameObject("Win Box", GameObjectType.Win, false);
+            winBox.Transform.SetTranslation(-6, -10, -220);
+            winBox.Transform.SetScale(50, 50, 50);
+
+            //add Collision Surface(s)
+            var colliderW = new Collider(false, true);
+
+            winBox.AddComponent(colliderW);
+            colliderW.AddPrimitive(new JigLibX.Geometry.Box(
+                winBox.Transform.LocalTranslation,
+                winBox.Transform.LocalRotation,
+                winBox.Transform.LocalScale),
+                new MaterialProperties(0.8f, 0.8f, 0.7f));
+            colliderW.Enable(true, 1);
+            level.Add(winBox);
+
             //Physic system broken and its too late to make this ones into the game
             #region MovingPlatforms
             /*

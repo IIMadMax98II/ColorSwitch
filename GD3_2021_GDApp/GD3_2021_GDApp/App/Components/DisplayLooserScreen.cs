@@ -12,7 +12,7 @@ namespace GDApp.App.Components
     {
         public override void Awake()
         {
-            EventDispatcher.Subscribe(EventCategoryType.LooseMenu, HandleEvent);
+            EventDispatcher.Subscribe(EventCategoryType.LoseMenu, HandleEvent);
             base.Awake();
         }
 

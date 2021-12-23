@@ -31,6 +31,8 @@ namespace GDApp
         public const string UI_SCENE_MAIN_NAME = "main ui";
         public const string MENU_MAIN_NAME = "main menu";
         public const string MENU_CONTROLS_NAME = "controls menu";
+        public const string MENU_WIN_GAME = "win menu";
+        public const string MENU_LOSE_GAME = "lose menu";
 
         public const string MENU_PLAY_BTN_NAME = "Play";
         public const string MENU_CONTROLS_BTN_NAME = "Controls";
